@@ -49,6 +49,14 @@ npm install
 npm run dev
 ```
 
+## Development Workflow
+
+- Treat `main` as a protected branch.
+- Create a new branch for each issue or focused unit of work.
+- Open a pull request for changes instead of committing directly to `main`.
+- Keep commit history linear by preferring squash merges or rebase-based merges.
+- Use merges to `main` as the trigger for production-oriented build and deploy workflows.
+
 ## Environment Variable Guidance
 
 - `.env.example` is the only env file that should be committed.
