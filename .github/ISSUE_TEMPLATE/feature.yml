@@ -1,0 +1,49 @@
+name: Feature Request
+description: Propose a new feature or enhancement for the festival site.
+title: "[Feature]: "
+labels:
+  - feature
+body:
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: What problem are we solving, and why does it matter for the event or attendees?
+      placeholder: Describe the current situation, business context, and user need.
+    validations:
+      required: true
+  - type: textarea
+    id: requirements
+    attributes:
+      label: Requirements
+      description: List the functional needs and constraints for this work.
+      placeholder: Include scope, boundaries, content needs, and any provider constraints.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: Describe how we will know this work is complete.
+      placeholder: |
+        - User can ...
+        - Admin can ...
+        - System should ...
+    validations:
+      required: true
+  - type: textarea
+    id: implementation_notes
+    attributes:
+      label: Implementation Notes
+      description: Add technical notes, dependencies, or suggested approach.
+      placeholder: Mention routes, components, integrations, data model concerns, or rollout notes.
+    validations:
+      required: false
+  - type: textarea
+    id: testing_notes
+    attributes:
+      label: Testing Notes
+      description: Describe how this should be validated before merge.
+      placeholder: Include manual checks, automated tests, edge cases, and failure-path validation.
+    validations:
+      required: true

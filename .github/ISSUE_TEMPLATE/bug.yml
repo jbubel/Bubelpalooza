@@ -1,0 +1,54 @@
+name: Bug Report
+description: Report a defect, regression, or unexpected behavior.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: What were you trying to do, and where did the issue happen?
+      placeholder: Describe the page, workflow, environment, and why this matters.
+    validations:
+      required: true
+  - type: textarea
+    id: current_behavior
+    attributes:
+      label: Current Behavior
+      description: What actually happened?
+      placeholder: Include the observed result, error text, or incorrect behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: Expected Behavior
+      description: What should have happened instead?
+      placeholder: Describe the correct outcome.
+    validations:
+      required: true
+  - type: textarea
+    id: requirements
+    attributes:
+      label: Requirements Or Constraints
+      description: Note any business rules, provider constraints, or security expectations involved.
+      placeholder: Include anything that must remain true while fixing this bug.
+    validations:
+      required: false
+  - type: textarea
+    id: implementation_notes
+    attributes:
+      label: Implementation Notes
+      description: Add any suspected cause, impacted files, logs, or debugging notes.
+      placeholder: Mention reproductions, related routes, integrations, or recent changes.
+    validations:
+      required: false
+  - type: textarea
+    id: testing_notes
+    attributes:
+      label: Testing Notes
+      description: Describe how the fix should be verified.
+      placeholder: Include reproduction steps, regression checks, and automated/manual validation.
+    validations:
+      required: true
