@@ -31,6 +31,17 @@
 - Before adding a dependency or external service, confirm it is already approved by project direction or clearly justified.
 - Treat this repo as public-facing documentation as well as code. Leave clear docs when setup or behavior may not be obvious.
 
+## Branch And Git Workflow
+
+- Never implement work directly on `main`.
+- Always create or switch to a task-specific branch before making code changes.
+- Prefer branch names like `feature/issue-9-stripe-checkout`, `fix/issue-14-email-confirmation`, or `chore/ci-setup`.
+- Open a pull request for every change set instead of pushing directly to `main`.
+- Treat merges to `main` as the trigger point for production-oriented builds and releases.
+- Keep history linear. Prefer squash merges or rebase-based merges, and avoid merge commits that create non-linear history.
+- Before opening or updating a pull request, rebase onto the latest `main` when needed rather than merging `main` into the feature branch.
+- Local commits to `main` are blocked by the repo hook and should be treated as a workflow violation.
+
 ## Secrets And Environment Variable Rules
 
 - Never commit real secrets, tokens, API keys, signing secrets, or production configuration values.
