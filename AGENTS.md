@@ -54,6 +54,15 @@
 - If a value looks sensitive, keep it out of logs, screenshots, fixtures, tests, and docs.
 - If a secret is exposed, rotate it immediately and update affected systems.
 
+## Deployment Guidance
+
+- Use Vercel as the default hosting platform unless project direction changes.
+- Treat Vercel preview deployments as the default review environment for pull requests.
+- Treat `main` as the production deployment branch for `bubelpalooza.com`.
+- Do not commit Vercel project tokens, generated local Vercel config, or production environment exports.
+- Prefer Vercel defaults unless a repo-level config file is clearly needed.
+- Document any hosted environment variable requirements in repo docs and `.env.example`, but keep real hosted values in Vercel only.
+
 ## Database And Migration Guidance
 
 - Use Drizzle ORM with Neon Postgres.
