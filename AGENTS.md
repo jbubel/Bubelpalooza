@@ -33,13 +33,17 @@
 
 ## Branch And Git Workflow
 
+- New implementation work should start from a GitHub issue. If a task does not already have an issue, create one before coding begins.
+- Before starting a new task branch, update local `main` from the latest remote `main`.
 - Never implement work directly on `main`.
 - Always create or switch to a task-specific branch before making code changes.
 - Prefer branch names like `feature/issue-9-stripe-checkout`, `fix/issue-14-email-confirmation`, or `chore/ci-setup`.
 - Open a pull request for every change set instead of pushing directly to `main`.
+- Pull requests should link the related issue. Use a closing keyword such as `Closes #21` when the issue is fully completed by the PR, and use `Refs #21` when it is only related work.
 - Treat merges to `main` as the trigger point for production-oriented builds and releases.
 - Keep history linear. Prefer squash merges or rebase-based merges, and avoid merge commits that create non-linear history.
 - Before opening or updating a pull request, rebase onto the latest `main` when needed rather than merging `main` into the feature branch.
+- After a pull request is merged, delete the head branch.
 - Local commits to `main` are blocked by the repo hook and should be treated as a workflow violation.
 
 ## Secrets And Environment Variable Rules

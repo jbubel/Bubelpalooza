@@ -4,7 +4,9 @@
 
 ## Linked Issue
 
-Closes #
+- Use `Closes #...` if this PR fully completes the issue.
+- Use `Refs #...` if this PR is related but does not complete the issue.
+- Example: `Closes #21`
 
 ## Testing
 

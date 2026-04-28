@@ -51,10 +51,14 @@ npm run dev
 
 ## Development Workflow
 
+- Start new implementation work from a GitHub issue. If no issue exists yet, create one before coding.
+- Update local `main` from the latest remote `main` before creating a new task branch.
 - Treat `main` as a protected branch.
 - Create a new branch for each issue or focused unit of work.
 - Open a pull request for changes instead of committing directly to `main`.
+- Link the related issue in the pull request. Use `Closes #...` when the PR fully completes the issue, or `Refs #...` when it does not.
 - Keep commit history linear by preferring squash merges or rebase-based merges.
+- Delete feature branches after merge.
 - Use merges to `main` as the trigger for production-oriented build and deploy workflows.
 
 ## Environment Variable Guidance
