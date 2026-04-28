@@ -17,7 +17,7 @@ export function SiteHeader() {
           size="sm"
           className="hidden bg-white/80 sm:inline-flex"
         >
-          Event site in progress
+          Summer gathering
         </Button>
       </div>
     </header>
