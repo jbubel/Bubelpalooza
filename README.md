@@ -37,7 +37,7 @@ This repository is being built iteratively, but the long-term goal is a robust, 
 2. Install your package manager of choice. `npm` is the simplest default.
 3. Copy `.env.example` to `.env.local`.
 4. Fill in local development values only. Do not use production secrets in local files.
-5. Install dependencies after the app scaffold is added:
+5. Install dependencies:
 
 ```bash
 npm install
