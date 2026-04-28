@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+
 export function SiteHeader() {
   return (
     <header className="border-b border-black/5 bg-white/80 backdrop-blur">
@@ -10,9 +12,13 @@ export function SiteHeader() {
             Crawfish boil, pool party, and mini music showcase
           </p>
         </div>
-        <div className="hidden text-sm font-medium text-slate-500 sm:block">
-          Public event site in progress
-        </div>
+        <Button
+          variant="outline"
+          size="sm"
+          className="hidden bg-white/80 sm:inline-flex"
+        >
+          Event site in progress
+        </Button>
       </div>
     </header>
   );
