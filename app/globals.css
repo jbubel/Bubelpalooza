@@ -51,9 +51,8 @@
 body {
   font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
   background:
-    radial-gradient(circle at top, rgba(46, 196, 243, 0.18), transparent 28%),
-    radial-gradient(circle at 80% 10%, rgba(247, 37, 133, 0.16), transparent 20%),
-    linear-gradient(180deg, #101827 0%, #13253a 45%, #101827 100%);
+    radial-gradient(circle at top, rgba(46, 196, 243, 0.14), transparent 26%),
+    linear-gradient(180deg, #101827 0%, #12243a 100%);
   color: var(--foreground);
 }
 
@@ -153,7 +152,7 @@ a {
 @layer utilities {
   .poster-panel {
     background:
-      linear-gradient(180deg, rgba(255, 241, 199, 0.94), rgba(255, 247, 230, 0.95)),
+      linear-gradient(180deg, rgba(255, 212, 71, 0.98), rgba(255, 241, 199, 0.96)),
       repeating-linear-gradient(
         0deg,
         rgba(16, 24, 39, 0.02) 0,
@@ -167,6 +166,13 @@ a {
     background:
       linear-gradient(180deg, rgba(23, 32, 51, 0.96), rgba(16, 24, 39, 0.96)),
       radial-gradient(circle at top, rgba(46, 196, 243, 0.12), transparent 35%);
+  }
+
+  .sticker {
+    box-shadow:
+      0 14px 30px rgba(16, 24, 39, 0.18),
+      inset 0 1px 0 rgba(255, 255, 255, 0.24);
+    transform: rotate(-1.5deg);
   }
 
   .sun-badge {

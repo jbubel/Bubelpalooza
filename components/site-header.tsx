@@ -17,7 +17,7 @@ export function SiteHeader() {
           size="sm"
           className="sun-badge hidden rounded-full border-0 px-4 text-[#172033] sm:inline-flex"
         >
-          Family-friendly summer festival
+          Bubel Beach Club
         </Button>
       </div>
     </header>
