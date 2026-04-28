@@ -1,3 +1,18 @@
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+
 export default function Home() {
   return (
     <section className="px-6 py-20 sm:py-24">
@@ -6,31 +21,55 @@ export default function Home() {
           Bubelpalooza
         </p>
         <h1 className="mt-4 text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
-          The shared site shell is ready for the event experience.
+          The component foundation is ready for the event experience.
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-          The app now has a reusable header, footer, and baseline metadata layer
-          to support the public event site as it grows.
+          The app now has shared UI primitives in place so the public event site
+          can grow with less visual churn and less component rework.
         </p>
-        <div className="mt-10 grid gap-4 lg:grid-cols-[1.4fr_1fr]">
-          <div className="rounded-2xl border border-orange-100 bg-orange-50 p-6">
-            <h2 className="text-base font-semibold text-slate-900">
-              Shared layout in place
-            </h2>
-            <p className="mt-2 text-sm leading-6 text-slate-600">
-              Future pages can now plug into a consistent shell instead of
-              re-creating top-level structure one route at a time.
-            </p>
-          </div>
-          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-            <h2 className="text-base font-semibold text-slate-900">
-              Next suggested step
-            </h2>
-            <p className="mt-2 text-sm leading-6 text-slate-600">
-              Build the real homepage and supporting event-information pages on
-              top of this shell.
-            </p>
-          </div>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <Button>Tickets coming soon</Button>
+          <Button variant="outline">Merch preview next</Button>
+        </div>
+        <div className="mt-10 grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
+          <Card className="border-orange-100 bg-orange-50/70">
+            <CardHeader>
+              <CardTitle>Shared layout in place</CardTitle>
+              <CardDescription>
+                Future pages can now plug into a consistent shell and component
+                set instead of re-creating UI patterns route by route.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Accordion type="single" collapsible>
+                <AccordionItem value="foundation">
+                  <AccordionTrigger>What is already set up?</AccordionTrigger>
+                  <AccordionContent>
+                    The app has a reusable header, footer, baseline metadata,
+                    and the first `shadcn/ui` primitives needed for upcoming
+                    homepage and FAQ work.
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="next">
+                  <AccordionTrigger>Why add components this early?</AccordionTrigger>
+                  <AccordionContent>
+                    Establishing the design primitives now helps keep later page
+                    work consistent and reduces UI cleanup once ticketing and
+                    event information pages expand.
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </CardContent>
+          </Card>
+          <Card className="bg-slate-50/90">
+            <CardHeader>
+              <CardTitle>Next suggested step</CardTitle>
+              <CardDescription>
+                Build the real homepage and supporting event-information pages
+                on top of this shared shell and component baseline.
+              </CardDescription>
+            </CardHeader>
+          </Card>
         </div>
       </div>
     </section>
