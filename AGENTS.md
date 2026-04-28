@@ -31,6 +31,7 @@
 - Before adding a dependency or external service, confirm it is already approved by project direction or clearly justified.
 - Treat this repo as public-facing documentation as well as code. Leave clear docs when setup or behavior may not be obvious.
 - In public-facing copy and design, treat crawfish, poolside energy, and live music as mutually reinforcing parts of the event identity. Music should be presented as a visible, celebratory part of the event story alongside the boil and the pool.
+- Use reference images for direction only. Public site artwork should be generated, licensed, or otherwise project-owned before it is committed.
 
 ## Branch And Git Workflow
 

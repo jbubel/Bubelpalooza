@@ -34,7 +34,7 @@ The site should feel inviting and exciting, but still trustworthy enough for tic
 
 The design should feel like a vibrant printed flyer layered onto a polished web app.
 
-The event art should be treated as a primary source of visual direction, not as optional decoration to be referenced loosely.
+Event art references should be treated as primary visual direction, but shipped site graphics should be project-owned generated assets or intentionally created originals.
 
 Use:
 

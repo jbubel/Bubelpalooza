@@ -1,205 +1,248 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
-const signwords = [
-  { label: "Sunshine", color: "bg-[#2ec4f3]", text: "text-[#173257]" },
-  { label: "Good Times", color: "bg-[#e6392e]", text: "text-[#fff7e6]" },
-  { label: "Cold Drinks", color: "bg-[#2ec4f3]", text: "text-[#173257]" },
-  { label: "Live Music", color: "bg-[#f97316]", text: "text-[#fff7e6]" },
+const marqueeItems = [
+  "Crawfish boil",
+  "Pool is open",
+  "Live music",
+  "Cold drinks",
+  "Good times",
+];
+
+const ticketNotes = [
+  {
+    label: "Tickets",
+    title: "Quick entry",
+    copy: "Simple choices, clear details, and a checkout path that keeps the party moving.",
+  },
+  {
+    label: "Merch",
+    title: "Event gear",
+    copy: "Shirts and extras should feel like part of the poster world, not a separate shop.",
+  },
+  {
+    label: "Lineup",
+    title: "Live sets",
+    copy: "Music belongs in the main event mix with the boil, the water, and the people.",
+  },
 ];
 
 export default function Home() {
   return (
-    <div className="px-4 py-6 sm:px-6 sm:py-10">
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-5">
-        <section className="space-y-5">
-          <div className="poster-shadow overflow-hidden rounded-[2.6rem] border-2 border-[#173257]/18 bg-[#fff7e6]">
-            <Image
-              src="/event-art/bubel-wood-banner.jpg"
-              alt="Bubelpalooza event artwork with a crawfish boil, pool, palms, and summer party graphics."
-              width={1924}
-              height={909}
-              priority
-              className="h-auto w-full object-cover"
-            />
+    <div className="overflow-hidden bg-[#ffd447] text-[#102344]">
+      <section className="relative isolate min-h-[calc(100svh-5.5rem)] overflow-hidden border-b-[10px] border-[#102344]">
+        <Image
+          src="/generated-art/bubelpalooza-hero.png"
+          alt="Illustrated Bubelpalooza scene with crawfish, poolside party details, string lights, palms, and a live music stage."
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-[#ffd447]/10" />
+
+        <div className="relative z-10 mx-auto flex min-h-[calc(100svh-5.5rem)] w-full max-w-7xl flex-col justify-between px-5 pb-8 pt-8 sm:px-8 lg:px-10">
+          <div className="flex flex-wrap gap-2">
+            <span className="sign-chip bg-[#e6392e] text-white">
+              Bubel Beach Club
+            </span>
+            <span className="sign-chip bg-[#2ec4f3] text-[#102344]">
+              Crawfish boil
+            </span>
+            <span className="sign-chip bg-white text-[#102344]">
+              Pool party
+            </span>
+            <span className="sign-chip bg-[#f97316] text-white">
+              Live music
+            </span>
           </div>
 
-          <div className="grid gap-5 lg:grid-cols-[1.08fr_0.92fr]">
-            <div className="poster-shadow rounded-[2.25rem] border-2 border-[#173257]/15 bg-[#fff7e6] px-6 py-8 text-[#173257] sm:px-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#e6392e]">
-                Bubel Beach Club
-              </p>
-              <h1
-                data-poster="true"
-                className="mt-4 max-w-3xl text-5xl leading-[0.88] tracking-[0.02em] sm:text-6xl"
-              >
-                CRAWFISH. POOLSIDE. LIVE MUSIC. GOOD TIMES YEAR AFTER YEAR.
-              </h1>
-              <p className="mt-5 max-w-2xl text-lg leading-8 text-[#344760]">
-                Bubelpalooza brings the boil, the pool, the music, the drinks,
-                and the summer-party feel together in one place. It should feel
-                fun before it feels polished and memorable before it feels tidy.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Button
-                  asChild
-                  size="lg"
-                  className="rounded-full border-0 bg-[#e6392e] px-7 text-base text-[#fff7e6] hover:bg-[#cf2f24]"
-                >
-                  <a href="#tickets">Tickets coming soon</a>
-                </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="rounded-full border-[#173257]/20 bg-white px-7 text-base text-[#173257] hover:bg-[#fff7e6]"
-                >
-                  <a href="#experience">See the experience</a>
-                </Button>
-              </div>
-            </div>
-
-            <div className="poster-shadow overflow-hidden rounded-[2.25rem] border-2 border-[#173257]/15 bg-[#fff7e6]">
-              <Image
-                src="/event-art/bubel-signpost.jpg"
-                alt="Bubelpalooza design detail showing tropical signpost graphics including sunshine, good times, cold drinks, and live music."
-                width={1152}
-                height={2048}
-                className="h-full max-h-[28rem] w-full object-cover object-bottom"
-              />
-            </div>
-          </div>
-        </section>
-
-        <section
-          id="experience"
-          className="grid gap-3 md:grid-cols-4"
-        >
-          {signwords.map((item) => (
-            <div
-              key={item.label}
-              className={`poster-shadow rounded-[1.6rem] border-2 border-[#173257]/15 px-5 py-5 ${item.color} ${item.text}`}
+          <div className="max-w-5xl py-10 sm:py-14">
+            <p className="mb-3 inline-block bg-[#102344] px-4 py-2 text-sm font-black uppercase text-[#ffd447]">
+              Good food / cold drinks / good times
+            </p>
+            <h1
+              data-poster="true"
+              className="headline-stack text-[2.875rem] leading-[0.86] text-[#e6392e] min-[380px]:text-6xl sm:text-8xl lg:text-[9rem]"
             >
-              <p className="text-xs font-semibold uppercase tracking-[0.22em]">
-                Event energy
-              </p>
-              <p data-poster="true" className="mt-3 text-3xl leading-[0.92]">
-                {item.label}
-              </p>
-            </div>
-          ))}
-        </section>
+              BUBELPALOOZA
+            </h1>
+            <p className="mt-5 max-w-2xl border-l-8 border-[#e6392e] bg-[#fff7e6]/92 px-5 py-4 text-lg font-bold leading-8 shadow-[10px_10px_0_#102344]">
+              A sun-soaked crawfish boil, pool party, live music hang, and
+              beach-club good time built to feel loud, local, and loved.
+            </p>
+          </div>
 
-        <section className="grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
-          <div
-            id="tickets"
-            className="poster-shadow rounded-[2.25rem] border-2 border-[#173257]/15 bg-[#fff7e6] px-6 py-8 text-[#173257] sm:px-8"
-          >
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#e6392e]">
-              Tickets
+          <div className="grid gap-3 sm:grid-cols-[auto_auto_1fr] sm:items-end">
+            <Button
+              asChild
+              size="lg"
+              className="h-auto rounded-none border-4 border-[#102344] bg-[#e6392e] px-7 py-4 text-base font-black uppercase text-white shadow-[6px_6px_0_#102344] hover:bg-[#cf2f24]"
+            >
+              <a href="#tickets">Tickets coming soon</a>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="h-auto rounded-none border-4 border-[#102344] bg-[#fff7e6] px-7 py-4 text-base font-black uppercase text-[#102344] shadow-[6px_6px_0_#102344] hover:bg-white"
+            >
+              <a href="#lineup">View lineup</a>
+            </Button>
+            <p className="max-w-sm bg-[#2ec4f3] px-4 py-3 text-sm font-black uppercase text-[#102344] shadow-[6px_6px_0_#102344] sm:justify-self-end">
+              Bubel Beach Club / crawfish / pool / bands / merch
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        aria-label="Event highlights"
+        className="border-b-[10px] border-[#102344] bg-[#102344] py-4 text-[#fff7e6]"
+      >
+        <div className="marquee-row">
+          {[...marqueeItems, ...marqueeItems].map((item, index) => (
+            <span key={`${item}-${index}`} data-poster="true">
+              {item}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      <section
+        id="experience"
+        className="relative overflow-hidden border-b-[10px] border-[#102344] bg-[#ffd447] px-5 py-14 sm:px-8 lg:px-10"
+      >
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
+          <div>
+            <p className="inline-block bg-[#2ec4f3] px-4 py-2 text-sm font-black uppercase text-[#102344] shadow-[5px_5px_0_#102344]">
+              The whole day
             </p>
             <h2
               data-poster="true"
-              className="mt-4 text-5xl leading-[0.9] tracking-[0.02em]"
+              className="mt-5 max-w-3xl text-5xl leading-[0.92] text-[#102344] sm:text-7xl"
             >
-              TICKETS SHOULD FEEL AS EASY AS THE PARTY.
+              ONE PARTY. A LOT OF COLOR.
             </h2>
-            <p className="mt-5 max-w-xl text-base leading-7 text-[#344760]">
-              Clear options, obvious calls to action, and a checkout experience
-              that feels trustworthy without losing the event personality.
+            <p className="mt-5 max-w-xl text-lg font-semibold leading-8 text-[#24344d]">
+              The site should feel like the event poster came alive: sharp
+              ribbons, loud color, tropical movement, crawfish boil warmth,
+              poolside brightness, and music running straight through it.
             </p>
-            <div className="mt-8 grid gap-3 sm:grid-cols-3">
-              <div className="rounded-[1.5rem] border-2 border-[#e6392e]/20 bg-[#ffd447] p-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.26em] text-[#e6392e]">
-                  Quick
-                </p>
-                <p className="mt-2 text-sm">
-                  Guests should know where to click immediately.
-                </p>
-              </div>
-              <div className="rounded-[1.5rem] border-2 border-[#2ec4f3]/25 bg-white p-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.26em] text-[#1d4ed8]">
-                  Clear
-                </p>
-                <p className="mt-2 text-sm">
-                  Ticket types and details should read at a glance.
-                </p>
-              </div>
-              <div className="rounded-[1.5rem] border-2 border-[#173257]/15 bg-[#fff1c7] p-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.26em] text-[#f97316]">
-                  Ready
-                </p>
-                <p className="mt-2 text-sm">
-                  Follow-up info should make guests feel set for the day.
-                </p>
-              </div>
-            </div>
           </div>
 
-          <div
-            id="lineup"
-            className="poster-shadow rounded-[2.25rem] border-2 border-[#173257]/15 bg-[#173257] px-6 py-8 text-[#fff7e6] sm:px-8"
-          >
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#2ec4f3]">
+          <div className="relative min-h-[24rem] overflow-hidden border-4 border-[#102344] bg-[#fff7e6] shadow-[14px_14px_0_#102344]">
+            <Image
+              src="/generated-art/bubelpalooza-poster-panel.png"
+              alt="Original illustrated Bubelpalooza poster panel with crawfish, ticket stubs, merch, pool water, and a live music stage."
+              fill
+              sizes="(min-width: 1024px) 58vw, 100vw"
+              className="object-cover object-center"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="tickets"
+        className="bg-[#fff7e6] px-5 py-14 text-[#102344] sm:px-8 lg:px-10"
+      >
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+            <div>
+              <p className="inline-block bg-[#e6392e] px-4 py-2 text-sm font-black uppercase text-white shadow-[5px_5px_0_#102344]">
+                Tickets + merch
+              </p>
+              <h2
+                data-poster="true"
+                className="mt-5 text-5xl leading-[0.9] text-[#e6392e] sm:text-7xl"
+              >
+                BUY THE PASS. WEAR THE SHIRT. HIT THE POOL.
+              </h2>
+            </div>
+            <p className="max-w-2xl border-t-8 border-[#2ec4f3] pt-5 text-lg font-semibold leading-8 text-[#344760]">
+              Ticketing should be obvious, merchandise should feel collectible,
+              and every purchase touchpoint should still look like
+              Bubelpalooza.
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-4 lg:grid-cols-3">
+            {ticketNotes.map((note) => (
+              <article
+                key={note.label}
+                className="ticket-panel border-4 border-[#102344] bg-[#ffd447] p-5 shadow-[10px_10px_0_#102344]"
+              >
+                <p className="inline-block bg-[#102344] px-3 py-1 text-xs font-black uppercase text-[#ffd447]">
+                  {note.label}
+                </p>
+                <h3
+                  data-poster="true"
+                  className="mt-5 text-4xl leading-[0.9] text-[#102344]"
+                >
+                  {note.title}
+                </h3>
+                <p className="mt-4 text-base font-semibold leading-7 text-[#344760]">
+                  {note.copy}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="lineup"
+        className="border-y-[10px] border-[#102344] bg-[#e6392e] px-5 py-14 text-white sm:px-8 lg:px-10"
+      >
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_1fr] lg:items-center">
+          <div>
+            <p className="inline-block bg-[#ffd447] px-4 py-2 text-sm font-black uppercase text-[#102344] shadow-[5px_5px_0_#102344]">
               Live music
             </p>
             <h2
               data-poster="true"
-              className="mt-4 text-5xl leading-[0.9] tracking-[0.02em]"
+              className="mt-5 text-5xl leading-[0.9] sm:text-7xl"
             >
-              MUSIC IS PART OF THE MAIN EVENT ENERGY.
+              THE LINEUP BELONGS ON THE POSTER.
             </h2>
-            <p className="mt-5 max-w-xl text-base leading-7 text-[#f7dfa5]">
-              The lineup should carry the same celebratory weight as the boil
-              and the pool. It belongs in the headline mix and should feel
-              lively, visible, and woven through the day from the first scroll.
+          </div>
+          <div className="border-4 border-[#102344] bg-[#fff7e6] p-5 text-[#102344] shadow-[12px_12px_0_#102344]">
+            <p className="text-lg font-black leading-8">
+              Live sets should feel as present as the boil and the pool:
+              celebratory, visible, and built into the rhythm of the day.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <span className="sticker rounded-full bg-[#e6392e] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-white">
-                Live music
-              </span>
-              <span className="sticker rounded-full bg-[#2ec4f3] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#173257]">
-                Pool party
-              </span>
-              <span className="sticker rounded-full bg-[#ffd447] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#173257]">
-                Crawfish boil
-              </span>
+            <div className="mt-5 grid grid-cols-2 gap-3 text-center text-sm font-black uppercase sm:grid-cols-4">
+              {marqueeItems.slice(0, 4).map((item) => (
+                <span key={item} className="bg-[#2ec4f3] px-3 py-3">
+                  {item}
+                </span>
+              ))}
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section
-          id="beach-club"
-          className="poster-shadow rounded-[2.25rem] border-2 border-[#173257]/15 bg-[#fff7e6] px-6 py-8 text-[#173257] sm:px-8"
-        >
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#1d4ed8]">
-            Bubel Beach Club
-          </p>
-          <div className="mt-4 grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-            <h2
-              data-poster="true"
-              className="text-5xl leading-[0.9] tracking-[0.02em]"
-            >
-              GOOD FOOD. COLD DRINKS. GOOD TIMES.
-            </h2>
-            <p className="max-w-2xl text-base leading-8 text-[#344760]">
-              The page should feel like the event graphics came to life: tropical,
-              bright, playful, a little rustic, and clearly made for a real day
-              of crawfish, poolside fun, and live music at Bubel Beach Club.
+      <section
+        id="beach-club"
+        className="bg-[#ffd447] px-5 py-14 text-[#102344] sm:px-8 lg:px-10"
+      >
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+          <h2
+            data-poster="true"
+            className="max-w-4xl text-5xl leading-[0.9] sm:text-7xl"
+          >
+            BUBEL BEACH CLUB IS THE DESTINATION.
+          </h2>
+          <div className="border-l-8 border-[#e6392e] bg-[#fff7e6] p-6 text-lg font-semibold leading-8 shadow-[10px_10px_0_#102344]">
+            <p>
+              Sunshine, water, crawfish, cold drinks, merch, and live music all
+              get the same visual confidence. The page should sell the feeling
+              before it asks anyone to buy a ticket.
             </p>
           </div>
-
-          <div className="mt-8 overflow-hidden rounded-[2rem] border-2 border-[#173257]/12 bg-white">
-            <Image
-              src="/event-art/bubel-banner.jpg"
-              alt="Bubelpalooza illustrated banner artwork featuring a crawfish boil, pool, tropical plants, and celebratory signage."
-              width={2048}
-              height={825}
-              className="h-auto w-full object-cover"
-            />
-          </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </div>
   );
 }
