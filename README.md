@@ -69,6 +69,37 @@ npm run dev
 - Use separate values for local, preview, and production environments whenever possible.
 - Rotate any secret immediately if it is ever exposed.
 
+## Deployment
+
+- The intended hosting platform is Vercel.
+- Pull requests and non-`main` branches should use Vercel preview deployments.
+- The `main` branch should be the only branch that deploys to the production domain.
+- Production domain target: `bubelpalooza.com`
+- Preview URLs should be used for review instead of maintaining a separate shared staging domain at this stage.
+
+### Vercel Setup
+
+1. Create or open the Vercel project for this repository.
+2. Connect the GitHub repository to Vercel.
+3. Set the production branch to `main`.
+4. Add the production domain `bubelpalooza.com`.
+5. Allow Vercel to post preview deployment checks to pull requests.
+6. Configure environment variables in Vercel rather than committing them.
+
+### Hosted Environment Variables
+
+- For the current frontend-only phase, `NEXT_PUBLIC_APP_URL` is the most important hosted value.
+- In preview environments, set `NEXT_PUBLIC_APP_URL` to the preview deployment URL pattern you want to rely on, or manage it per-environment in Vercel.
+- In production, set `NEXT_PUBLIC_APP_URL` to `https://bubelpalooza.com`.
+- Add database, Stripe, Resend, Twilio, and Sentry values in Vercel only when those features are implemented.
+
+### Deployment Workflow
+
+- Feature branches open pull requests and receive Vercel preview deployments.
+- Reviewers use the preview URL attached to the pull request for QA and design review.
+- Merges to `main` trigger the production deployment.
+- Keep preview and production configuration separate where values differ.
+
 ## Security And Data Handling
 
 - Do not commit secrets, API keys, webhook signing secrets, exports, or customer data.
