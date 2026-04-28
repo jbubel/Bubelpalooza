@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Bubelpalooza is a public-facing web app for a family crawfish boil and pool party with a mini music showcase as a supporting part of the experience. The product vision is a polished, full-featured event site that can handle public event information, ticketing, merchandise, operational messaging, and dependable post-purchase flows.
+Bubelpalooza is a public-facing web app for a family crawfish boil, pool party, and live music event at Bubel Beach Club. The product vision is a polished, full-featured event site that can handle public event information, ticketing, merchandise, operational messaging, and dependable post-purchase flows.
 
 This repository is being built iteratively, but the long-term goal is a robust, production-ready platform rather than a narrow one-off MVP.
 
