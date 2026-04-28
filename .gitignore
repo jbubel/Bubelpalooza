@@ -1,11 +1,14 @@
 # dependencies
 node_modules/
+.pnp
+.pnp.*
 
 # next.js
 .next/
 out/
 
 # build artifacts
+build/
 dist/
 coverage/
 
@@ -23,6 +26,7 @@ pnpm-debug.log*
 .env.test.local
 .env.production.local
 .env.*.local
+!.env.example
 
 # editor and system files
 .DS_Store
@@ -32,3 +36,5 @@ Thumbs.db
 
 # misc
 *.tsbuildinfo
+*.pem
+.vercel/
