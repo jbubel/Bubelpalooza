@@ -34,6 +34,8 @@ The site should feel inviting and exciting, but still trustworthy enough for tic
 
 The design should feel like a vibrant printed flyer layered onto a polished web app.
 
+The event art should be treated as a primary source of visual direction, not as optional decoration to be referenced loosely.
+
 Use:
 
 - bold color blocks
@@ -278,6 +280,8 @@ Style:
 - bold type
 - playful dividers
 - optional `stage/time` labels
+
+The music presentation should sit visibly alongside the boil and the pool in both messaging and layout.
 
 ### Food / Crawfish
 

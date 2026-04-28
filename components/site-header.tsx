@@ -9,7 +9,7 @@ export function SiteHeader() {
             Bubelpalooza
           </p>
           <p className="mt-2 text-sm text-[#172033]">
-            Bubel Beach Club · crawfish boil · pool party · live music
+            Bubel Beach Club / crawfish boil / pool party / live music
           </p>
         </div>
         <nav className="hidden items-center gap-6 text-sm font-semibold uppercase tracking-[0.18em] text-[#172033] lg:flex">

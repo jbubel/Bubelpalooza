@@ -7,7 +7,7 @@ export function SiteFooter() {
           and merchandise.
         </p>
         <p className="text-[#f7dfa5]">
-          Bubel Beach Club brings together crawfish, poolside fun, and live music.
+          Bubel Beach Club brings together crawfish, poolside fun, cold drinks, and live music.
         </p>
       </div>
     </footer>
