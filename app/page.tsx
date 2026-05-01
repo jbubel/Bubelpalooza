@@ -189,7 +189,7 @@ export default function Home() {
               className="object-cover object-center"
             />
             <div className="pointer-events-none absolute inset-0 text-center font-black uppercase [text-shadow:1px_1px_0_rgba(255,247,230,0.78)]">
-              <div className="absolute left-[27%] top-[12%] flex h-[18%] w-[48%] rotate-[1deg] flex-col items-center justify-center text-[#102344]">
+              <div className="absolute left-[22%] top-[12.5%] flex h-[18%] w-[48%] rotate-[1deg] flex-col items-center justify-center text-[#102344]">
                 <p
                   data-poster="true"
                   className="text-[clamp(1rem,4.1vw,3rem)] leading-[0.86]"
@@ -201,7 +201,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="absolute left-[30%] top-[43%] flex h-[12%] w-[19%] rotate-[1deg] flex-col items-center justify-center text-[#fff7e6] [text-shadow:2px_2px_0_rgba(16,35,68,0.78)]">
+              <div className="absolute left-[25.5%] top-[45.5%] flex h-[12%] w-[18%] -rotate-[5deg] flex-col items-center justify-center text-[#fff7e6] [text-shadow:2px_2px_0_rgba(16,35,68,0.78)]">
                 <p
                   data-poster="true"
                   className="text-[clamp(0.72rem,2.55vw,1.85rem)] leading-[0.86]"
@@ -213,7 +213,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="absolute left-[55%] top-[43%] flex h-[12%] w-[19%] -rotate-[1deg] flex-col items-center justify-center text-[#fff7e6] [text-shadow:2px_2px_0_rgba(16,35,68,0.72)]">
+              <div className="absolute left-[58%] top-[45.5%] flex h-[12%] w-[18%] rotate-[6deg] flex-col items-center justify-center text-[#fff7e6] [text-shadow:2px_2px_0_rgba(16,35,68,0.72)]">
                 <p
                   data-poster="true"
                   className="text-[clamp(0.72rem,2.55vw,1.85rem)] leading-[0.86]"
@@ -225,7 +225,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="absolute left-[36%] top-[61%] flex h-[12%] w-[31%] -rotate-[1deg] flex-col items-center justify-center text-[#102344]">
+              <div className="absolute left-[31.5%] top-[63.5%] flex h-[12%] w-[31%] -rotate-[3deg] flex-col items-center justify-center text-[#102344]">
                 <p
                   data-poster="true"
                   className="text-[clamp(0.78rem,2.7vw,1.95rem)] leading-[0.86]"
