@@ -181,18 +181,18 @@ export default function Home() {
 
           <div className="relative aspect-[1774/887] overflow-hidden border-4 border-[#102344] bg-[#fff7e6] shadow-[14px_14px_0_#102344]">
             <Image
-              src="/generated-art/bubelpalooza-poster-panel.png"
-              alt="Original illustrated Bubelpalooza poster panel with crawfish, ticket stubs, merch, pool water, live music stage, and overlaid event details."
+              src="/generated-art/bubelpalooza-schedule-panel.png"
+              alt="Illustrated Bubelpalooza schedule poster panel with crawfish, pool water, live music stage, merch, tickets, and event detail signs."
               fill
               priority
               sizes="(min-width: 1024px) 58vw, 100vw"
               className="object-cover object-center"
             />
             <div className="pointer-events-none absolute inset-0 text-center font-black uppercase [text-shadow:1px_1px_0_rgba(255,247,230,0.78)]">
-              <div className="absolute left-[22%] top-[12.5%] flex h-[18%] w-[48%] rotate-[1deg] flex-col items-center justify-center text-[#102344]">
+              <div className="absolute left-[23%] top-[12%] flex h-[19%] w-[54%] flex-col items-center justify-center text-[#102344]">
                 <p
                   data-poster="true"
-                  className="text-[clamp(1rem,4.1vw,3rem)] leading-[0.86]"
+                  className="text-[clamp(1.05rem,4.4vw,3.25rem)] leading-[0.86]"
                 >
                   Sun May 24
                 </p>
@@ -201,10 +201,10 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="absolute left-[25.5%] top-[45.5%] flex h-[12%] w-[18%] -rotate-[5deg] flex-col items-center justify-center text-[#fff7e6] [text-shadow:2px_2px_0_rgba(16,35,68,0.78)]">
+              <div className="absolute left-[13%] top-[40%] flex h-[15%] w-[29%] -rotate-[2deg] flex-col items-center justify-center text-[#fff7e6] [text-shadow:2px_2px_0_rgba(16,35,68,0.78)]">
                 <p
                   data-poster="true"
-                  className="text-[clamp(0.72rem,2.55vw,1.85rem)] leading-[0.86]"
+                  className="text-[clamp(0.82rem,3vw,2.15rem)] leading-[0.86]"
                 >
                   12 PM
                 </p>
@@ -213,10 +213,10 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="absolute left-[58%] top-[45.5%] flex h-[12%] w-[18%] rotate-[6deg] flex-col items-center justify-center text-[#fff7e6] [text-shadow:2px_2px_0_rgba(16,35,68,0.72)]">
+              <div className="absolute left-[59%] top-[40%] flex h-[15%] w-[29%] rotate-[2deg] flex-col items-center justify-center text-[#fff7e6] [text-shadow:2px_2px_0_rgba(16,35,68,0.72)]">
                 <p
                   data-poster="true"
-                  className="text-[clamp(0.72rem,2.55vw,1.85rem)] leading-[0.86]"
+                  className="text-[clamp(0.82rem,3vw,2.15rem)] leading-[0.86]"
                 >
                   1 PM
                 </p>
@@ -225,10 +225,10 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="absolute left-[31.5%] top-[63.5%] flex h-[12%] w-[31%] -rotate-[3deg] flex-col items-center justify-center text-[#102344]">
+              <div className="absolute left-[25%] top-[63%] flex h-[15%] w-[48%] flex-col items-center justify-center text-[#102344]">
                 <p
                   data-poster="true"
-                  className="text-[clamp(0.78rem,2.7vw,1.95rem)] leading-[0.86]"
+                  className="text-[clamp(0.9rem,3.3vw,2.3rem)] leading-[0.86]"
                 >
                   2:30 PM
                 </p>
