@@ -44,7 +44,7 @@ export function SiteHeader() {
           size="sm"
           className="hidden self-center rounded-none border-4 border-[#102344] bg-[#2ec4f3] px-4 py-5 text-sm font-black uppercase text-[#102344] shadow-[5px_5px_0_#102344] hover:bg-[#6fd8f7] sm:inline-flex"
         >
-          <a href="#tickets">Tickets soon</a>
+          <a href="#tickets">Ticket info soon</a>
         </Button>
       </div>
     </header>

@@ -28,18 +28,18 @@ const scheduleItems = [
 const ticketNotes = [
   {
     label: "Tickets",
-    title: "Quick entry",
-    copy: "Simple choices, clear details, and a checkout path that keeps the party moving.",
+    title: "Ticket info",
+    copy: "Ticket details are coming soon. For now, save the date and keep an eye here for updates.",
   },
   {
     label: "Merch",
     title: "Event gear",
-    copy: "Shirts and extras should feel like part of the poster world, not a separate shop.",
+    copy: "Event shirts and small-run merch are in the works. We'll share more once details are ready.",
   },
   {
     label: "Lineup",
-    title: "Live sets",
-    copy: "Music belongs in the main event mix with the boil, the water, and the people.",
+    title: "Live music",
+    copy: "Live music kicks off at 2:30 PM. Artist and set details will be posted as we get closer.",
   },
 ];
 
@@ -91,8 +91,8 @@ export default function Home() {
             </h1>
             <p className="mt-5 max-w-2xl border-l-8 border-[#e6392e] bg-[#fff7e6]/92 px-5 py-4 text-lg font-bold leading-8 shadow-[10px_10px_0_#102344]">
               Sunday, May 24, 2026 at Bubel Beach Club in Leander, TX. A
-              sun-soaked crawfish boil, pool party, live music hang, and
-              beach-club good time built to feel loud, local, and loved.
+              sun-soaked crawfish boil, pool party, live music, cold drinks,
+              and good people all in one backyard beach-club day.
             </p>
           </div>
 
@@ -114,7 +114,7 @@ export default function Home() {
                 <a href="#day-schedule">See the schedule</a>
               </Button>
               <p className="max-w-sm bg-[#2ec4f3] px-4 py-3 text-sm font-black uppercase text-[#102344] shadow-[6px_6px_0_#102344] sm:justify-self-end">
-                Bubel Beach Club / crawfish / pool / bands / merch
+                Bubel Beach Club / crawfish / pool / live music / merch
               </p>
             </div>
 
@@ -172,10 +172,9 @@ export default function Home() {
               SAVE THE DATE. SHOW UP HUNGRY.
             </h2>
             <p className="mt-5 max-w-xl text-lg font-semibold leading-8 text-[#24344d]">
-              The site should feel like the event poster came alive: sharp
-              ribbons, loud color, tropical movement, crawfish boil warmth,
-              poolside brightness, and music running straight through it. More
-              ticket, merch, menu, and lineup details are coming soon.
+              Pool opens at noon, the boil hits the table at 1 PM, and live
+              music kicks off at 2:30 PM. We will keep this page updated as
+              ticket, menu, merch, and lineup details come together.
             </p>
           </div>
 
@@ -273,9 +272,8 @@ export default function Home() {
               </h2>
             </div>
             <p className="max-w-2xl border-t-8 border-[#2ec4f3] pt-5 text-lg font-semibold leading-8 text-[#344760]">
-              Ticketing should be obvious, merchandise should feel collectible,
-              and every purchase touchpoint should still look like
-              Bubelpalooza. Tickets and merch are coming soon.
+              Tickets and merch are still being finalized. Once they are ready,
+              this page will point you straight to the right place.
             </p>
           </div>
 
@@ -316,14 +314,13 @@ export default function Home() {
               data-poster="true"
               className="mt-5 text-5xl leading-[0.9] sm:text-7xl"
             >
-              THE LINEUP BELONGS ON THE POSTER.
+              LIVE MUSIC STARTS AT 2:30.
             </h2>
           </div>
           <div className="border-4 border-[#102344] bg-[#fff7e6] p-5 text-[#102344] shadow-[12px_12px_0_#102344]">
             <p className="text-lg font-black leading-8">
-              Live sets should feel as present as the boil and the pool:
-              celebratory, visible, and built into the rhythm of the day. Music
-              kicks off at 2:30 PM.
+              The music is part of the whole-day hang. We will share artists,
+              times, and any setup notes here as they are confirmed.
             </p>
             <div className="mt-5 grid grid-cols-2 gap-3 text-center text-sm font-black uppercase sm:grid-cols-4">
               {marqueeItems.slice(0, 4).map((item) => (
@@ -350,8 +347,8 @@ export default function Home() {
           <div className="border-l-8 border-[#e6392e] bg-[#fff7e6] p-6 text-lg font-semibold leading-8 shadow-[10px_10px_0_#102344]">
             <p>
               Sunday, May 24, 2026 in Leander, TX. Sunshine, water, crawfish,
-              cold drinks, merch, and live music all get the same visual
-              confidence while fuller event details are still on the way.
+              cold drinks, merch, and live music are on the way. We will add
+              parking, ticket, lineup, and day-of notes as they are ready.
             </p>
           </div>
         </div>

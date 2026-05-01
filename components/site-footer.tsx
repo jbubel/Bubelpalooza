@@ -6,9 +6,9 @@ export function SiteFooter() {
           BUBELPALOOZA
         </p>
         <p className="max-w-2xl text-sm font-semibold leading-6 text-[#f7dfa5]">
-          Sunday, May 24, 2026 at Bubel Beach Club in Leander, TX. Event info,
-          ticketing, merchandise, crawfish, poolside energy, cold drinks, and
-          live music.
+          Sunday, May 24, 2026 at Bubel Beach Club in Leander, TX. Save the
+          date for crawfish, pool time, cold drinks, merch updates, and live
+          music details as they come together.
         </p>
         <p className="bg-[#e6392e] px-4 py-2 text-sm font-black uppercase text-white">
           Good times year after year
