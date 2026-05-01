@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 const marqueeItems = [
+  "Sunday May 24",
   "Crawfish boil",
   "Pool is open",
   "Live music",
@@ -9,21 +10,36 @@ const marqueeItems = [
   "Good times",
 ];
 
+const scheduleItems = [
+  {
+    time: "12 PM",
+    label: "Pool opens",
+  },
+  {
+    time: "1 PM",
+    label: "Boil hits the table",
+  },
+  {
+    time: "2:30 PM",
+    label: "Live music kicks off",
+  },
+];
+
 const ticketNotes = [
   {
     label: "Tickets",
-    title: "Quick entry",
-    copy: "Simple choices, clear details, and a checkout path that keeps the party moving.",
+    title: "Ticket info",
+    copy: "Ticket details are coming soon. For now, save the date and keep an eye here for updates.",
   },
   {
     label: "Merch",
     title: "Event gear",
-    copy: "Shirts and extras should feel like part of the poster world, not a separate shop.",
+    copy: "Event shirts and small-run merch are in the works. We'll share more once details are ready.",
   },
   {
     label: "Lineup",
-    title: "Live sets",
-    copy: "Music belongs in the main event mix with the boil, the water, and the people.",
+    title: "Live music",
+    copy: "Live music kicks off at 2:30 PM. Artist and set details will be posted as we get closer.",
   },
 ];
 
@@ -43,6 +59,12 @@ export default function Home() {
 
         <div className="relative z-10 mx-auto flex min-h-[calc(100svh-5.5rem)] w-full max-w-7xl flex-col justify-between px-5 pb-8 pt-8 sm:px-8 lg:px-10">
           <div className="flex flex-wrap gap-2">
+            <span className="sign-chip bg-[#102344] text-[#ffd447]">
+              Sunday, May 24, 2026
+            </span>
+            <span className="sign-chip bg-white text-[#102344]">
+              Leander, TX
+            </span>
             <span className="sign-chip bg-[#e6392e] text-white">
               Bubel Beach Club
             </span>
@@ -68,30 +90,55 @@ export default function Home() {
               BUBELPALOOZA
             </h1>
             <p className="mt-5 max-w-2xl border-l-8 border-[#e6392e] bg-[#fff7e6]/92 px-5 py-4 text-lg font-bold leading-8 shadow-[10px_10px_0_#102344]">
-              A sun-soaked crawfish boil, pool party, live music hang, and
-              beach-club good time built to feel loud, local, and loved.
+              Sunday, May 24, 2026 at Bubel Beach Club in Leander, TX. A
+              sun-soaked crawfish boil, pool party, live music, cold drinks,
+              and good people all in one backyard beach-club day.
             </p>
           </div>
 
-          <div className="grid gap-3 sm:grid-cols-[auto_auto_1fr] sm:items-end">
-            <Button
-              asChild
-              size="lg"
-              className="h-auto rounded-none border-4 border-[#102344] bg-[#e6392e] px-7 py-4 text-base font-black uppercase text-white shadow-[6px_6px_0_#102344] hover:bg-[#cf2f24]"
+          <div className="space-y-4">
+            <div className="grid gap-3 sm:grid-cols-[auto_auto_1fr] sm:items-end">
+              <Button
+                asChild
+                size="lg"
+                className="h-auto rounded-none border-4 border-[#102344] bg-[#e6392e] px-7 py-4 text-base font-black uppercase text-white shadow-[6px_6px_0_#102344] hover:bg-[#cf2f24]"
+              >
+                <a href="#tickets">Tickets coming soon</a>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="h-auto rounded-none border-4 border-[#102344] bg-[#fff7e6] px-7 py-4 text-base font-black uppercase text-[#102344] shadow-[6px_6px_0_#102344] hover:bg-white"
+              >
+                <a href="#day-schedule">See the schedule</a>
+              </Button>
+              <p className="max-w-sm bg-[#2ec4f3] px-4 py-3 text-sm font-black uppercase text-[#102344] shadow-[6px_6px_0_#102344] sm:justify-self-end">
+                Bubel Beach Club / crawfish / pool / live music / merch
+              </p>
+            </div>
+
+            <div
+              id="day-schedule"
+              className="grid gap-3 border-4 border-[#102344] bg-[#fff7e6] p-3 shadow-[8px_8px_0_#102344] sm:grid-cols-3"
             >
-              <a href="#tickets">Tickets coming soon</a>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="h-auto rounded-none border-4 border-[#102344] bg-[#fff7e6] px-7 py-4 text-base font-black uppercase text-[#102344] shadow-[6px_6px_0_#102344] hover:bg-white"
-            >
-              <a href="#lineup">View lineup</a>
-            </Button>
-            <p className="max-w-sm bg-[#2ec4f3] px-4 py-3 text-sm font-black uppercase text-[#102344] shadow-[6px_6px_0_#102344] sm:justify-self-end">
-              Bubel Beach Club / crawfish / pool / bands / merch
-            </p>
+              {scheduleItems.map((item) => (
+                <div
+                  key={item.label}
+                  className="border-2 border-[#102344] bg-[#ffd447] px-4 py-3"
+                >
+                  <p
+                    data-poster="true"
+                    className="text-4xl leading-none text-[#e6392e]"
+                  >
+                    {item.time}
+                  </p>
+                  <p className="mt-1 text-sm font-black uppercase text-[#102344]">
+                    {item.label}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -122,24 +169,88 @@ export default function Home() {
               data-poster="true"
               className="mt-5 max-w-3xl text-5xl leading-[0.92] text-[#102344] sm:text-7xl"
             >
-              ONE PARTY. A LOT OF COLOR.
+              SAVE THE DATE. SHOW UP HUNGRY.
             </h2>
             <p className="mt-5 max-w-xl text-lg font-semibold leading-8 text-[#24344d]">
-              The site should feel like the event poster came alive: sharp
-              ribbons, loud color, tropical movement, crawfish boil warmth,
-              poolside brightness, and music running straight through it.
+              Pool opens at noon, the boil hits the table at 1 PM, and live
+              music kicks off at 2:30 PM. We will keep this page updated as
+              ticket, menu, merch, and lineup details come together.
             </p>
           </div>
 
-          <div className="relative min-h-[24rem] overflow-hidden border-4 border-[#102344] bg-[#fff7e6] shadow-[14px_14px_0_#102344]">
+          <div className="relative aspect-[1774/887] overflow-hidden border-4 border-[#102344] bg-[#fff7e6] shadow-[14px_14px_0_#102344]">
             <Image
-              src="/generated-art/bubelpalooza-poster-panel.png"
-              alt="Original illustrated Bubelpalooza poster panel with crawfish, ticket stubs, merch, pool water, and a live music stage."
+              src="/generated-art/bubelpalooza-schedule-panel.png"
+              alt="Illustrated Bubelpalooza schedule poster panel with crawfish, pool water, live music stage, merch, tickets, and event detail signs."
               fill
+              priority
               sizes="(min-width: 1024px) 58vw, 100vw"
               className="object-cover object-center"
             />
+            <div className="pointer-events-none absolute inset-0 text-center font-black uppercase [text-shadow:1px_1px_0_rgba(255,247,230,0.78)]">
+              <div className="absolute left-[23%] top-[12%] flex h-[19%] w-[54%] flex-col items-center justify-center text-[#102344]">
+                <p
+                  data-poster="true"
+                  className="text-[clamp(1.05rem,4.4vw,3.25rem)] leading-[0.86]"
+                >
+                  Sun May 24
+                </p>
+                <p className="mt-1 text-[clamp(0.38rem,1.18vw,0.82rem)] leading-none">
+                  Bubel Beach Club / Leander, TX
+                </p>
+              </div>
+
+              <div className="absolute left-[13%] top-[40%] flex h-[15%] w-[29%] -rotate-[2deg] flex-col items-center justify-center text-[#fff7e6] [text-shadow:2px_2px_0_rgba(16,35,68,0.78)]">
+                <p
+                  data-poster="true"
+                  className="text-[clamp(0.82rem,3vw,2.15rem)] leading-[0.86]"
+                >
+                  12 PM
+                </p>
+                <p className="text-[clamp(0.32rem,0.88vw,0.62rem)] leading-none">
+                  Pool opens
+                </p>
+              </div>
+
+              <div className="absolute left-[59%] top-[40%] flex h-[15%] w-[29%] rotate-[2deg] flex-col items-center justify-center text-[#fff7e6] [text-shadow:2px_2px_0_rgba(16,35,68,0.72)]">
+                <p
+                  data-poster="true"
+                  className="text-[clamp(0.82rem,3vw,2.15rem)] leading-[0.86]"
+                >
+                  1 PM
+                </p>
+                <p className="text-[clamp(0.32rem,0.88vw,0.62rem)] leading-none">
+                  Boil hits
+                </p>
+              </div>
+
+              <div className="absolute left-[25%] top-[63%] flex h-[15%] w-[48%] flex-col items-center justify-center text-[#102344]">
+                <p
+                  data-poster="true"
+                  className="text-[clamp(0.9rem,3.3vw,2.3rem)] leading-[0.86]"
+                >
+                  2:30 PM
+                </p>
+                <p className="text-[clamp(0.32rem,0.88vw,0.62rem)] leading-none">
+                  Music kicks off
+                </p>
+              </div>
+            </div>
           </div>
+
+          <dl className="grid gap-2 border-4 border-[#102344] bg-[#fff7e6] p-3 text-[#102344] shadow-[8px_8px_0_#102344] sm:hidden">
+            {scheduleItems.map((item) => (
+              <div
+                key={item.label}
+                className="flex items-center justify-between gap-3 border-2 border-[#102344] bg-[#ffd447] px-3 py-2"
+              >
+                <dt className="text-sm font-black uppercase">{item.label}</dt>
+                <dd data-poster="true" className="text-3xl leading-none text-[#e6392e]">
+                  {item.time}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
@@ -161,9 +272,8 @@ export default function Home() {
               </h2>
             </div>
             <p className="max-w-2xl border-t-8 border-[#2ec4f3] pt-5 text-lg font-semibold leading-8 text-[#344760]">
-              Ticketing should be obvious, merchandise should feel collectible,
-              and every purchase touchpoint should still look like
-              Bubelpalooza.
+              Tickets and merch are still being finalized. Once they are ready,
+              this page will point you straight to the right place.
             </p>
           </div>
 
@@ -204,13 +314,13 @@ export default function Home() {
               data-poster="true"
               className="mt-5 text-5xl leading-[0.9] sm:text-7xl"
             >
-              THE LINEUP BELONGS ON THE POSTER.
+              LIVE MUSIC STARTS AT 2:30.
             </h2>
           </div>
           <div className="border-4 border-[#102344] bg-[#fff7e6] p-5 text-[#102344] shadow-[12px_12px_0_#102344]">
             <p className="text-lg font-black leading-8">
-              Live sets should feel as present as the boil and the pool:
-              celebratory, visible, and built into the rhythm of the day.
+              The music is part of the whole-day hang. We will share artists,
+              times, and any setup notes here as they are confirmed.
             </p>
             <div className="mt-5 grid grid-cols-2 gap-3 text-center text-sm font-black uppercase sm:grid-cols-4">
               {marqueeItems.slice(0, 4).map((item) => (
@@ -236,9 +346,9 @@ export default function Home() {
           </h2>
           <div className="border-l-8 border-[#e6392e] bg-[#fff7e6] p-6 text-lg font-semibold leading-8 shadow-[10px_10px_0_#102344]">
             <p>
-              Sunshine, water, crawfish, cold drinks, merch, and live music all
-              get the same visual confidence. The page should sell the feeling
-              before it asks anyone to buy a ticket.
+              Sunday, May 24, 2026 in Leander, TX. Sunshine, water, crawfish,
+              cold drinks, merch, and live music are on the way. We will add
+              parking, ticket, lineup, and day-of notes as they are ready.
             </p>
           </div>
         </div>

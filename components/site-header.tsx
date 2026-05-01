@@ -17,13 +17,14 @@ export function SiteHeader() {
             BUBELPALOOZA
           </span>
           <span className="border-t-4 border-[#102344] bg-[#fff7e6] px-3 py-1 text-xs font-black uppercase text-[#102344]">
-            Bubel Beach Club
+            May 24 / Leander, TX
           </span>
         </Link>
 
         <nav className="hidden items-center justify-center gap-2 lg:flex">
           {[
             ["Experience", "#experience"],
+            ["Schedule", "#day-schedule"],
             ["Tickets", "#tickets"],
             ["Lineup", "#lineup"],
             ["Beach Club", "#beach-club"],
@@ -43,7 +44,7 @@ export function SiteHeader() {
           size="sm"
           className="hidden self-center rounded-none border-4 border-[#102344] bg-[#2ec4f3] px-4 py-5 text-sm font-black uppercase text-[#102344] shadow-[5px_5px_0_#102344] hover:bg-[#6fd8f7] sm:inline-flex"
         >
-          <a href="#tickets">Tickets soon</a>
+          <a href="#tickets">Ticket info soon</a>
         </Button>
       </div>
     </header>

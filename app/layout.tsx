@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: "%s | Bubelpalooza",
   },
   description:
-    "Public event site for Bubelpalooza at Bubel Beach Club, bringing together a crawfish boil, pool party, and live music.",
+    "Bubelpalooza is Sunday, May 24, 2026 at Bubel Beach Club in Leander, TX, with a crawfish boil, pool party, and live music.",
 };
 
 export default function RootLayout({
