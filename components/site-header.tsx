@@ -17,13 +17,14 @@ export function SiteHeader() {
             BUBELPALOOZA
           </span>
           <span className="border-t-4 border-[#102344] bg-[#fff7e6] px-3 py-1 text-xs font-black uppercase text-[#102344]">
-            Bubel Beach Club
+            May 24 / Leander, TX
           </span>
         </Link>
 
         <nav className="hidden items-center justify-center gap-2 lg:flex">
           {[
             ["Experience", "#experience"],
+            ["Schedule", "#day-schedule"],
             ["Tickets", "#tickets"],
             ["Lineup", "#lineup"],
             ["Beach Club", "#beach-club"],
