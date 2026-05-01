@@ -179,14 +179,63 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="relative min-h-[24rem] overflow-hidden border-4 border-[#102344] bg-[#fff7e6] shadow-[14px_14px_0_#102344]">
+          <div className="relative aspect-[16/9] overflow-hidden border-4 border-[#102344] bg-[#fff7e6] shadow-[14px_14px_0_#102344]">
             <Image
               src="/generated-art/bubelpalooza-poster-panel.png"
-              alt="Original illustrated Bubelpalooza poster panel with crawfish, ticket stubs, merch, pool water, and a live music stage."
+              alt="Original illustrated Bubelpalooza poster panel with crawfish, ticket stubs, merch, pool water, live music stage, and overlaid event details."
               fill
               sizes="(min-width: 1024px) 58vw, 100vw"
               className="object-cover object-center"
             />
+            <div className="pointer-events-none absolute inset-0 text-center font-black uppercase">
+              <div className="absolute left-[27%] top-[13%] flex h-[18%] w-[48%] rotate-[1deg] flex-col items-center justify-center text-[#102344]">
+                <p
+                  data-poster="true"
+                  className="text-[clamp(1.3rem,4.5vw,3.3rem)] leading-[0.86]"
+                >
+                  Sun May 24
+                </p>
+                <p className="mt-1 text-[clamp(0.46rem,1.35vw,0.95rem)] leading-none">
+                  Bubel Beach Club / Leander TX
+                </p>
+              </div>
+
+              <div className="absolute left-[28%] top-[40%] flex h-[13%] w-[21%] rotate-[1deg] flex-col items-center justify-center text-[#fff7e6]">
+                <p
+                  data-poster="true"
+                  className="text-[clamp(0.9rem,3.1vw,2.2rem)] leading-[0.86]"
+                >
+                  12 PM
+                </p>
+                <p className="text-[clamp(0.4rem,1.1vw,0.72rem)] leading-none">
+                  Pool opens
+                </p>
+              </div>
+
+              <div className="absolute left-[54%] top-[40%] flex h-[13%] w-[21%] -rotate-[1deg] flex-col items-center justify-center text-[#fff7e6]">
+                <p
+                  data-poster="true"
+                  className="text-[clamp(0.9rem,3.1vw,2.2rem)] leading-[0.86]"
+                >
+                  1 PM
+                </p>
+                <p className="text-[clamp(0.4rem,1.1vw,0.72rem)] leading-none">
+                  Boil hits
+                </p>
+              </div>
+
+              <div className="absolute left-[35%] top-[58%] flex h-[13%] w-[31%] -rotate-[1deg] flex-col items-center justify-center text-[#102344]">
+                <p
+                  data-poster="true"
+                  className="text-[clamp(0.95rem,3.3vw,2.35rem)] leading-[0.86]"
+                >
+                  2:30 PM
+                </p>
+                <p className="text-[clamp(0.4rem,1.1vw,0.72rem)] leading-none">
+                  Live music kicks off
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
