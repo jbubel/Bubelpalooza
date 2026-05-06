@@ -33,6 +33,19 @@
 - In public-facing copy and design, treat crawfish, poolside energy, and live music as mutually reinforcing parts of the event identity. Music should be presented as a visible, celebratory part of the event story alongside the boil and the pool.
 - Use reference images for direction only. Public site artwork should be generated, licensed, or otherwise project-owned before it is committed.
 
+## Frontend, Design, And Copy Direction
+
+- Read `docs/theme.md` before making frontend, copy, imagery, metadata, or public-content changes.
+- Preserve the current Bubelpalooza direction: yellow-forward, red/white/navy/cream/pool-blue, poster/flyer inspired, bold, graphic, playful, and beach-club warm.
+- Avoid generic SaaS layouts, soft default rounded-card grids, neutral gradients, and corporate event-page patterns unless a restrained checkout/admin flow specifically calls for it.
+- Prefer sharp-edged signs, ribbons, banners, thick navy borders, hard offset shadows, ticket-stub shapes, wristband/merch motifs, and generated event art.
+- Public copy must read like guest-facing event information, not internal acceptance criteria or design notes. Avoid rendered phrases like `the site should`, `purchase touchpoint`, or implementation-focused language.
+- Use only verified public event facts. If details are unknown, use modest `coming soon` language rather than inventing logistics, ticket terms, lineup details, menu claims, policies, or guarantees.
+- Do not downplay the music. Present live music as an integrated part of Bubelpalooza alongside the crawfish boil, pool, drinks, merch, and community.
+- For generated artwork with HTML overlays, make sure the image is designed for clean text placement. If the art is asymmetric or fighting the overlay, regenerate it or intentionally bake in text with a separate accessible text fallback.
+- Check meaningful UI changes across mobile, tablet, and desktop. Do not rely on tiny image text as the only source of important information on mobile.
+- Keep checkout, confirmation, admin, and operational screens calmer and more trust-focused than marketing pages while still feeling connected to the brand.
+
 ## Branch And Git Workflow
 
 - New implementation work should start from a GitHub issue. If a task does not already have an issue, create one before coding begins.
