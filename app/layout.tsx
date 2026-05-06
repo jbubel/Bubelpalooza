@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Anton, Geist_Mono, Work_Sans } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { ensureServerEnv, serverEnv } from "@/lib/env/server";
 import "./globals.css";
 
 const workSans = Work_Sans({
@@ -23,8 +24,10 @@ const anton = Anton({
 const siteDescription =
   "Bubelpalooza is Sunday, May 24, 2026 at Bubel Beach Club in Leander, TX, with a crawfish boil, pool party, and live music.";
 
+ensureServerEnv();
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://bubelpalooza.com"),
+  metadataBase: new URL(serverEnv.APP_URL),
   title: {
     default: "Bubelpalooza",
     template: "%s | Bubelpalooza",
