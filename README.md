@@ -13,7 +13,7 @@ This repository is being built iteratively, but the long-term goal is a robust, 
 - Merchandise browsing and checkout support
 - Order confirmation and attendee communication flows
 - Optional SMS reminders and event updates for opted-in guests
-- Operationally safe integrations for payments, notifications, monitoring, and future admin workflows
+- Operationally safe integrations for payments, notifications, monitoring, and admin workflows
 
 ## Tech Stack
 
@@ -43,7 +43,7 @@ This repository is being built iteratively, but the long-term goal is a robust, 
 npm install
 ```
 
-6. Start the development server once the Next.js app is initialized:
+6. Start the development server:
 
 ```bash
 npm run dev
@@ -70,9 +70,10 @@ npm run dev
 - Rotate any secret immediately if it is ever exposed.
 - Public env reads should go through `lib/env/public.ts`.
 - Server-only env reads should go through `lib/env/server.ts`.
-- Empty provider values can stay unset until the related feature is implemented, but malformed configured values should fail fast.
+- Empty provider values can stay unset until they are needed, but malformed configured values should fail fast.
 - `NEXT_PUBLIC_APP_URL` is the local/non-Vercel override for the app base URL.
 - On Vercel, preview and production deployments can derive the app URL from Vercel system environment variables when those are enabled in project settings.
+- `DATABASE_URL` and `DATABASE_URL_UNPOOLED` are reserved for the Drizzle + Neon database foundation.
 
 ## Deployment
 
@@ -80,7 +81,7 @@ npm run dev
 - Pull requests and non-`main` branches should use Vercel preview deployments.
 - The `main` branch should be the only branch that deploys to the production domain.
 - Production domain target: `bubelpalooza.com`
-- Preview URLs should be used for review instead of maintaining a separate shared staging domain at this stage.
+- Preview URLs should be used for review instead of maintaining a separate shared staging domain.
 
 ### Vercel Setup
 
@@ -93,10 +94,10 @@ npm run dev
 
 ### Hosted Environment Variables
 
-- For the current frontend-only phase, `NEXT_PUBLIC_APP_URL` is the most important hosted value.
+- `NEXT_PUBLIC_APP_URL` is the primary hosted value for app URL and metadata configuration.
 - In preview environments, set `NEXT_PUBLIC_APP_URL` to the preview deployment URL pattern you want to rely on, or manage it per-environment in Vercel.
 - In production, set `NEXT_PUBLIC_APP_URL` to `https://bubelpalooza.com`.
-- Add database, Stripe, Resend, Twilio, and Sentry values in Vercel only when those features are implemented.
+- Add database, Stripe, Resend, Twilio, and Sentry values in Vercel when those services are used by the application.
 
 ### Deployment Workflow
 
@@ -122,6 +123,10 @@ The product should feel polished and welcoming while staying operationally simpl
 ## Design Direction
 
 The durable visual and copy direction lives in [`docs/theme.md`](docs/theme.md). Frontend work should follow the yellow-forward, poster/flyer-inspired Bubelpalooza direction captured there rather than drifting toward generic SaaS or conference-page patterns.
+
+## Backend Notes
+
+Database setup details live in [`docs/database.md`](docs/database.md).
 
 ## Near-Term Priorities
 
