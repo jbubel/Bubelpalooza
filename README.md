@@ -68,6 +68,9 @@ npm run dev
 - Production secrets should be stored in the deployment platform, not in the repository.
 - Use separate values for local, preview, and production environments whenever possible.
 - Rotate any secret immediately if it is ever exposed.
+- Public env reads should go through `lib/env/public.ts`.
+- Server-only env reads should go through `lib/env/server.ts`.
+- Empty provider values can stay unset until the related feature is implemented, but malformed configured values should fail fast.
 
 ## Deployment
 
