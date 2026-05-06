@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Anton, Geist_Mono, Work_Sans } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { publicEnv } from "@/lib/env/public";
-import { ensureServerEnv } from "@/lib/env/server";
+import { ensureServerEnv, serverEnv } from "@/lib/env/server";
 import "./globals.css";
 
 const workSans = Work_Sans({
@@ -28,7 +27,7 @@ const siteDescription =
 ensureServerEnv();
 
 export const metadata: Metadata = {
-  metadataBase: new URL(publicEnv.NEXT_PUBLIC_APP_URL),
+  metadataBase: new URL(serverEnv.APP_URL),
   title: {
     default: "Bubelpalooza",
     template: "%s | Bubelpalooza",

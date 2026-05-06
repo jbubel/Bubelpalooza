@@ -1,8 +1,8 @@
 import { z } from "zod";
-import { envUrl, formatEnvErrors, optionalSecret, optionalUrl } from "@/lib/env/shared";
+import { formatEnvErrors, optionalSecret, optionalUrl } from "@/lib/env/shared";
 
 const publicEnvSchema = z.object({
-  NEXT_PUBLIC_APP_URL: envUrl,
+  NEXT_PUBLIC_APP_URL: optionalUrl,
   NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: optionalSecret,
   NEXT_PUBLIC_SENTRY_DSN: optionalUrl,
 });

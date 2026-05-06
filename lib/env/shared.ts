@@ -34,6 +34,15 @@ export const optionalPhoneNumber = optionalEnv(
 
 export const optionalSecret = optionalEnv(z.string().trim().min(1, "cannot be empty"));
 
+export const optionalDomain = optionalEnv(
+  z
+    .string()
+    .trim()
+    .min(1, "cannot be empty")
+    .refine((value) => !value.includes("://"), "must be a domain without a protocol")
+    .refine((value) => !value.includes("/"), "must not include a path"),
+);
+
 const formatPath = (path: PropertyKey[]) => path.join(".");
 
 export function formatEnvErrors(error: z.ZodError, label: string) {
@@ -43,4 +52,8 @@ export function formatEnvErrors(error: z.ZodError, label: string) {
   });
 
   return [`Invalid ${label} environment variables:`, ...issues].join("\n");
+}
+
+export function toHttpsUrl(domain: string) {
+  return `https://${domain}`;
 }

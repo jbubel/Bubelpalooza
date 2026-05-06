@@ -1,10 +1,14 @@
 import { z } from "zod";
 import {
+  envUrl,
   formatEnvErrors,
+  optionalDomain,
   optionalEmail,
+  optionalEnv,
   optionalPhoneNumber,
   optionalSecret,
   optionalUrl,
+  toHttpsUrl,
 } from "@/lib/env/shared";
 import { publicEnv } from "@/lib/env/public";
 
@@ -21,6 +25,11 @@ const serverEnvSchema = z.object({
   TWILIO_PHONE_NUMBER: optionalPhoneNumber,
   SENTRY_DSN: optionalUrl,
   SENTRY_AUTH_TOKEN: optionalSecret,
+  VERCEL_ENV: optionalEnv(z.enum(["production", "preview", "development"])),
+  VERCEL_TARGET_ENV: optionalSecret,
+  VERCEL_URL: optionalDomain,
+  VERCEL_BRANCH_URL: optionalDomain,
+  VERCEL_PROJECT_PRODUCTION_URL: optionalDomain,
 });
 
 const serverEnvResult = serverEnvSchema.safeParse({
@@ -36,15 +45,50 @@ const serverEnvResult = serverEnvSchema.safeParse({
   TWILIO_PHONE_NUMBER: process.env.TWILIO_PHONE_NUMBER,
   SENTRY_DSN: process.env.SENTRY_DSN,
   SENTRY_AUTH_TOKEN: process.env.SENTRY_AUTH_TOKEN,
+  VERCEL_ENV: process.env.VERCEL_ENV,
+  VERCEL_TARGET_ENV: process.env.VERCEL_TARGET_ENV,
+  VERCEL_URL: process.env.VERCEL_URL,
+  VERCEL_BRANCH_URL: process.env.VERCEL_BRANCH_URL,
+  VERCEL_PROJECT_PRODUCTION_URL: process.env.VERCEL_PROJECT_PRODUCTION_URL,
 });
 
 if (!serverEnvResult.success) {
   throw new Error(formatEnvErrors(serverEnvResult.error, "server"));
 }
 
+const parsedServerEnv = serverEnvResult.data;
+
+function resolveAppUrl() {
+  if (publicEnv.NEXT_PUBLIC_APP_URL) {
+    return publicEnv.NEXT_PUBLIC_APP_URL;
+  }
+
+  const vercelCandidate =
+    parsedServerEnv.VERCEL_ENV === "preview"
+      ? parsedServerEnv.VERCEL_BRANCH_URL ?? parsedServerEnv.VERCEL_URL
+      : parsedServerEnv.VERCEL_PROJECT_PRODUCTION_URL ?? parsedServerEnv.VERCEL_URL;
+
+  const appUrlResult = envUrl.safeParse(
+    vercelCandidate ? toHttpsUrl(vercelCandidate) : undefined,
+  );
+
+  if (!appUrlResult.success) {
+    throw new Error(
+      [
+        "Invalid application URL configuration:",
+        "- Set NEXT_PUBLIC_APP_URL for local development and non-Vercel environments.",
+        "- Or enable Vercel system environment variables for preview and production deployments.",
+      ].join("\n"),
+    );
+  }
+
+  return appUrlResult.data;
+}
+
 export const serverEnv = {
-  ...serverEnvResult.data,
+  ...parsedServerEnv,
   ...publicEnv,
+  APP_URL: resolveAppUrl(),
 };
 
 export function ensureServerEnv() {
