@@ -1,10 +1,36 @@
-# Bubel Beach Club Festival Theme Guide
+# Bubelpalooza Theme Guide
 
 ## Brand Summary
 
-Bubel Beach Club should feel like a backyard beach-party festival with crawfish, live music, water, and summer energy. The visual style should be colorful, vibrant, slightly cartoonish, somewhat rustic, and intentionally imperfect, like a sun-faded festival flyer brought into a modern ticketing website.
+Bubelpalooza is a backyard beach-club event at Bubel Beach Club: crawfish boil, pool party, live music, cold drinks, merch, and family/community energy all moving together. The experience should feel like a bold sun-faded festival flyer brought into a modern event website, not like a generic SaaS landing page with event copy pasted into it.
 
-The site should feel inviting and exciting, but still trustworthy enough for ticket purchases.
+The site should feel inviting, loud, playful, and trustworthy enough for ticket purchases. The boil, pool, music, and merch should all feel like parts of the same day. Do not frame the music as an afterthought or lesser component.
+
+## Current Creative Direction
+
+Use the current homepage as the strongest practical reference:
+
+- Yellow-dominant background with red, white, navy, cream, and pool-blue type/accents
+- Bold poster typography and stacked flyer-like headlines
+- Rectangular signs, banners, ribbons, ticket stubs, thick navy borders, and hard shadow offsets
+- Generated, project-owned cartoon/flyer artwork with crawfish, pool water, palms, string lights, stage/music, wristbands, tickets, and merch motifs
+- Guest-facing save-the-date copy with concrete known details and soft "more details coming soon" language
+
+The preferred visual center of gravity is graphic-driven flyer energy. Avoid drifting back toward soft rounded cards, neutral gradients, abstract blobs, or corporate homepage section patterns.
+
+## Current Public Facts
+
+Use only verified event facts in public copy. Current confirmed details:
+
+- Event: Bubelpalooza
+- Location: Bubel Beach Club, Leander, TX
+- Date: Sunday, May 24, 2026
+- Pool opens: 12 PM
+- Boil hits the table: 1 PM
+- Live music kicks off: 2:30 PM
+- Food menu: Crawfish, shrimp, sausage, potatoes, mushrooms, corn, dirty rice
+
+If a detail is not confirmed, use public-facing "coming soon" language instead of inventing facts.
 
 ## Core Vibe
 
@@ -13,7 +39,7 @@ The site should feel inviting and exciting, but still trustworthy enough for tic
 - Slightly cartoonish, not childish
 - Festival flyer inspired
 - Warm, sun-washed, slightly overexposed
-- Semi-dark theme with bright accents
+- Yellow-forward with bright accents and navy structure
 - Music, water, crawfish, food, and community
 
 ## Inspiration Keywords
@@ -32,7 +58,7 @@ The site should feel inviting and exciting, but still trustworthy enough for tic
 
 ## Visual Direction
 
-The design should feel like a vibrant printed flyer layered onto a polished web app.
+The design should feel like a vibrant printed flyer layered onto a polished web app. Prioritize strong composition and event art over default web-section layouts.
 
 Event art references should be treated as primary visual direction, but shipped site graphics should be project-owned generated assets or intentionally created originals.
 
@@ -41,7 +67,7 @@ Use:
 - bold color blocks
 - large display headlines
 - playful badges
-- rounded cards
+- sharp-edged cards, signs, ribbons, banners, and ticket-stub shapes
 - slightly imperfect decorative shapes
 - strong call-to-action buttons
 - warm shadows and borders
@@ -54,6 +80,8 @@ Avoid:
 - luxury nightclub aesthetic
 - childish cartoon art
 - generic beach stock-photo feel
+- generic rounded-card grids as the default section pattern
+- smooth gradient section breaks that feel disconnected from the flyer world
 
 ## Color Palette
 
@@ -97,7 +125,8 @@ Card surface:
 
 ## Color Usage Rules
 
-- Use deep navy as the main page background.
+- Use festival yellow as the dominant public marketing background unless a section needs a calmer checkout/admin treatment.
+- Use deep navy for structure, borders, shadows, headers, and dark section breaks.
 - Use cream/yellow surfaces for flyer-like content blocks.
 - Use crawfish red for primary calls to action.
 - Use beach blue and yellow for energy, section accents, and badges.
@@ -152,25 +181,36 @@ Body copy should be simple, friendly, and highly readable.
 - Mobile-first
 - Big hero section
 - Strong vertical rhythm
-- Card-based content
+- Graphic-first poster sections
+- Card-based content only when it feels like printed panels, signs, tickets, merch tags, or wristbands
 - Clear ticket-buying path
 - Flyer-inspired sections, but not cluttered
 - Use bold section breaks
 - Use asymmetry lightly for energy
+- Use rectangles and sharper edges confidently; avoid default rounded-card softness unless the moment calls for it
+
+## Responsive Rules
+
+- Check meaningful frontend changes on mobile, tablet, and desktop.
+- Do not rely on tiny poster text as the only source of important information on mobile.
+- If generated artwork includes overlaid HTML text, verify the text lands correctly at multiple viewport sizes.
+- Prefer a separate accessible text fallback for schedules, prices, menu items, and other essential details.
+- If a generated image is not centered or was not designed for overlays, regenerate the art with clean sign/ribbon areas or bake the text into the image intentionally.
+- Avoid fragile percentage nudging against asymmetric artwork unless the result is visually checked across widths.
 
 ## UI Personality
 
 Buttons:
 
 - chunky
-- rounded
+- usually sharp or lightly rounded, not pill-shaped by default
 - high contrast
 - slightly playful
 - never subtle for primary actions
 
 Cards:
 
-- rounded
+- sharp-edged or lightly rounded
 - bordered
 - lightly shadowed
 - can feel like printed flyer panels or wristband/ticket stubs
@@ -230,6 +270,24 @@ Potential motifs:
 
 Motifs should be graphic and simple, not realistic.
 
+## Artwork Rules
+
+- Use reference images for direction only; do not ship monitor photos, screenshots, or unowned reference art as site assets.
+- Public site graphics must be generated, licensed, or otherwise project-owned before they are committed.
+- When generating artwork for the UI, prompt for clean composition and usable negative space where text will be placed.
+- For social cards or decorative posters with baked-in text, inspect spelling and legibility carefully before committing.
+- For editable page content, prefer HTML text over baked-in image text unless the image is purely promotional and accessible text exists elsewhere.
+- Keep generated assets in repo paths that Next.js can serve predictably, and never leave a referenced production asset only in a local generation directory.
+
+## Copy Rules
+
+- Public copy should sound like guest-facing event information, not internal acceptance criteria.
+- Avoid phrases like `the site should`, `the layout should`, `purchase touchpoints`, or other implementation language in rendered pages.
+- Keep claims modest until details are confirmed: `coming soon`, `we will share more`, and `details are still being finalized` are appropriate.
+- Do not invent event facts, ticket terms, lineup details, policies, dietary/allergen information, or logistics.
+- Do not downplay live music. Present it as a visible, celebratory part of Bubelpalooza alongside the boil and pool.
+- Use simple, friendly, specific copy over hype that creates expectations the event team has not confirmed.
+
 ## Section Guidance
 
 ### Hero
@@ -247,10 +305,11 @@ Include:
 
 Style:
 
-- dark navy background
+- yellow-forward or art-driven background
 - red/yellow/blue accents
 - oversized headline
 - badge-style metadata
+- clear event-name dominance
 
 ### Tickets
 
@@ -313,6 +372,10 @@ Rules:
 - avoid too many decorative elements
 - keep payment flow clean
 - show ticket details clearly
+
+### Metadata / Social Preview
+
+Favicons, app icons, and social preview images should use Bubelpalooza-branded generated/project-owned art. Shared links should feel like the event, not like Vercel, Next.js, or a placeholder deployment.
 
 ## Accessibility Rules
 

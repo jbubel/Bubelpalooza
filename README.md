@@ -114,6 +114,10 @@ This project is intended to become a dependable, full-featured home for the even
 
 The product should feel polished and welcoming while staying operationally simple behind the scenes. That means favoring secure hosted integrations, clear content structure, minimal data collection, and implementation choices that are easy to maintain over time.
 
+## Design Direction
+
+The durable visual and copy direction lives in [`docs/theme.md`](docs/theme.md). Frontend work should follow the yellow-forward, poster/flyer-inspired Bubelpalooza direction captured there rather than drifting toward generic SaaS or conference-page patterns.
+
 ## Near-Term Priorities
 
 - Establish a strong public-facing site identity around the crawfish boil and pool party
