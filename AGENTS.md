@@ -69,6 +69,7 @@
 - Use `.env.local` for local development and platform-managed environment variables for hosted environments.
 - If a value looks sensitive, keep it out of logs, screenshots, fixtures, tests, and docs.
 - If a secret is exposed, rotate it immediately and update affected systems.
+- When a shipped feature depends on environment variables in a deployed environment, those variables should become required application configuration and should fail fast at startup if they are missing.
 
 ## Deployment Guidance
 
