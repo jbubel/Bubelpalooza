@@ -12,7 +12,7 @@ const validUrl = (value: string) => {
   }
 };
 
-export const optionalEnv = <T extends z.ZodType>(schema: T) =>
+export const emptyStringAsUndefined = <T extends z.ZodType>(schema: T) =>
   z.preprocess(emptyStringToUndefined, schema.optional());
 
 export const envUrl = z
@@ -21,20 +21,43 @@ export const envUrl = z
   .min(1, "is required")
   .refine(validUrl, "must be a valid URL");
 
-export const optionalUrl = optionalEnv(envUrl);
+export const envUrlValue = emptyStringAsUndefined(envUrl);
 
-export const optionalEmail = optionalEnv(z.string().trim().email("must be a valid email address"));
+export const envEmailValue = emptyStringAsUndefined(
+  z.string().trim().email("must be a valid email address"),
+);
 
-export const optionalPhoneNumber = optionalEnv(
+const emailAddress = z.string().trim().email();
+
+function extractSenderEmailAddress(value: string) {
+  const senderMatch = value.trim().match(/^.+<([^<>]+)>$/);
+
+  return senderMatch ? senderMatch[1].trim() : value.trim();
+}
+
+export const envSenderEmailValue = emptyStringAsUndefined(
+  z
+    .string()
+    .trim()
+    .min(1, "cannot be empty")
+    .refine(
+      (value) => emailAddress.safeParse(extractSenderEmailAddress(value)).success,
+      "must be a valid email address or sender format like Name <email@example.com>",
+    ),
+);
+
+export const envPhoneNumberValue = emptyStringAsUndefined(
   z
     .string()
     .trim()
     .regex(/^\+[1-9]\d{1,14}$/, "must be a valid E.164 phone number"),
 );
 
-export const optionalSecret = optionalEnv(z.string().trim().min(1, "cannot be empty"));
+export const envSecretValue = emptyStringAsUndefined(
+  z.string().trim().min(1, "cannot be empty"),
+);
 
-export const optionalDomain = optionalEnv(
+export const envDomainValue = emptyStringAsUndefined(
   z
     .string()
     .trim()

@@ -1,6 +1,5 @@
 export const EVENT_UPDATES_STORAGE_KEYS = {
   dismissedAt: "bubelpalooza-event-updates-dismissed-at",
-  submittedAt: "bubelpalooza-event-updates-submitted-at",
 } as const;
 
 export const EVENT_UPDATES_MODAL_EVENT = "bubelpalooza:event-updates:open";
