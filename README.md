@@ -73,7 +73,7 @@ npm run dev
 - Empty provider values can stay unset until they are needed, but malformed configured values should fail fast.
 - `NEXT_PUBLIC_APP_URL` is the local/non-Vercel override for the app base URL.
 - On Vercel, preview and production deployments can derive the app URL from Vercel system environment variables when those are enabled in project settings.
-- `DATABASE_URL` and `DATABASE_URL_UNPOOLED` are reserved for the Drizzle + Neon database foundation.
+- At least one of `DATABASE_URL` or `DATABASE_URL_UNPOOLED` must be configured for deployed environments because database-backed features fail fast at startup.
 
 ## Deployment
 

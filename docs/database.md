@@ -20,7 +20,7 @@ The database foundation expects one of these variables when you run Drizzle comm
 - `DATABASE_URL`
 - `DATABASE_URL_UNPOOLED`
 
-Runtime app code prefers `DATABASE_URL` first and falls back to `DATABASE_URL_UNPOOLED`.
+Runtime app code requires at least one database URL at startup, prefers `DATABASE_URL` first, and falls back to `DATABASE_URL_UNPOOLED`.
 
 Drizzle commands prefer `DATABASE_URL_UNPOOLED` first and fall back to `DATABASE_URL`.
 
