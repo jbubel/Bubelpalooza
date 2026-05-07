@@ -9,7 +9,7 @@ Use Vercel preview deployments for pull request review and deploy production onl
 - Pull request branches get their own Vercel preview deployment
 - GitHub pull requests show a preview URL for review
 - The `main` branch deploys to `bubelpalooza.com`
-- No shared staging domain is required at this stage
+- No shared staging domain is required
 
 ## What Lives In The Repo
 
@@ -36,13 +36,13 @@ Use Vercel preview deployments for pull request review and deploy production onl
 
 ## Hosted Environment Variables
 
-### Current Frontend-Only Minimum
+### Baseline Hosted Value
 
 - `NEXT_PUBLIC_APP_URL`
 
-### Future Values
+### Additional Hosted Values
 
-Add these in Vercel when the related features are implemented:
+Add these in Vercel when the application uses the related services:
 
 - `DATABASE_URL`
 - `DATABASE_URL_UNPOOLED`
