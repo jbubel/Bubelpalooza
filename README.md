@@ -99,6 +99,8 @@ npm run dev
 - In preview environments, set `NEXT_PUBLIC_APP_URL` to the preview deployment URL pattern you want to rely on, or manage it per-environment in Vercel.
 - In production, set `NEXT_PUBLIC_APP_URL` to `https://bubelpalooza.com`.
 - Add database, Stripe, Resend, Twilio, and Sentry values in Vercel when those services are used by the application.
+- Event updates welcome emails use `RESEND_API_KEY`, `RESEND_FROM_EMAIL`, and the committed Resend template registry in `lib/notifications/resend-templates.ts`. Provider send failures or a missing hosted template ID do not block signup capture.
+- `RESEND_API_KEY` and `RESEND_FROM_EMAIL` are validated during server environment startup, including production builds.
 
 ### Deployment Workflow
 
@@ -128,6 +130,8 @@ The durable visual and copy direction lives in [`docs/theme.md`](docs/theme.md).
 ## Backend Notes
 
 Database setup details live in [`docs/database.md`](docs/database.md).
+
+Notification flow details live in [`docs/notifications.md`](docs/notifications.md).
 
 ## Near-Term Priorities
 

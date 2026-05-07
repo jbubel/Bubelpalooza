@@ -1,10 +1,10 @@
 import { z } from "zod";
-import { formatEnvErrors, optionalSecret, optionalUrl } from "@/lib/env/shared";
+import { envSecretValue, envUrlValue, formatEnvErrors } from "@/lib/env/shared";
 
 const publicEnvSchema = z.object({
-  NEXT_PUBLIC_APP_URL: optionalUrl,
-  NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: optionalSecret,
-  NEXT_PUBLIC_SENTRY_DSN: optionalUrl,
+  NEXT_PUBLIC_APP_URL: envUrlValue,
+  NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: envSecretValue,
+  NEXT_PUBLIC_SENTRY_DSN: envUrlValue,
 });
 
 const publicEnvResult = publicEnvSchema.safeParse({
