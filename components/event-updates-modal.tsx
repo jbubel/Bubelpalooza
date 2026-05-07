@@ -85,7 +85,7 @@ export function EventUpdatesModal() {
 
   const successMessage = useMemo(
     () =>
-      "You are on the list. We will send announcements when tickets go on sale and when new event details are ready.",
+      "We will send announcements when tickets go on sale and when new event details are ready.",
     [],
   );
 
@@ -151,7 +151,7 @@ export function EventUpdatesModal() {
         <button
           type="button"
           onClick={closeModal}
-          className="absolute right-3 top-3 inline-flex h-11 w-11 items-center justify-center border-2 border-[#102344] bg-[#fff7e6] text-[#102344] shadow-[3px_3px_0_#102344] hover:bg-white"
+          className="absolute right-3 top-3 inline-flex h-11 w-11 cursor-pointer items-center justify-center border-2 border-[#102344] bg-[#fff7e6] text-[#102344] shadow-[3px_3px_0_#102344] hover:bg-white"
           aria-label="Close updates signup"
         >
           <X className="size-5" />
