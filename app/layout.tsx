@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { EventUpdatesModal } from "@/components/event-updates-modal";
 import { Anton, Geist_Mono, Work_Sans } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -80,6 +81,7 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <SiteFooter />
         </div>
+        <EventUpdatesModal />
       </body>
     </html>
   );
