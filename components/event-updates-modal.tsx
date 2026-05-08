@@ -10,17 +10,22 @@ import {
   EVENT_UPDATES_STORAGE_KEYS,
 } from "@/lib/event-updates/constants";
 
-type FieldErrors = Partial<Record<"firstName" | "lastName" | "email", string[]>>;
+type FieldErrors = Partial<
+  Record<"firstName" | "lastName" | "email" | "phoneNumber" | "smsOptIn", string[]>
+>;
 
 const initialFormState = {
   firstName: "",
   lastName: "",
   email: "",
+  phoneNumber: "",
+  smsOptIn: false,
 };
 
 type FormField = keyof typeof initialFormState;
+type TextFormField = Exclude<FormField, "smsOptIn">;
 
-function getFormString(formData: FormData, field: FormField) {
+function getFormString(formData: FormData, field: TextFormField) {
   const value = formData.get(field);
 
   return typeof value === "string" ? value : "";
@@ -101,7 +106,7 @@ export function EventUpdatesModal() {
     );
   }
 
-  function updateFormValue(field: FormField, value: string) {
+  function updateFormValue(field: TextFormField, value: string) {
     setFormValues((current) => ({
       ...current,
       [field]: value,
@@ -119,6 +124,24 @@ export function EventUpdatesModal() {
     }
   }
 
+  function updateSmsOptIn(value: boolean) {
+    setFormValues((current) => ({
+      ...current,
+      smsOptIn: value,
+    }));
+
+    if (fieldErrors.smsOptIn?.length) {
+      setFieldErrors((current) => ({
+        ...current,
+        smsOptIn: undefined,
+      }));
+    }
+
+    if (requestError) {
+      setRequestError(null);
+    }
+  }
+
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
@@ -126,6 +149,8 @@ export function EventUpdatesModal() {
       firstName: getFormString(formData, "firstName"),
       lastName: getFormString(formData, "lastName"),
       email: getFormString(formData, "email"),
+      phoneNumber: getFormString(formData, "phoneNumber"),
+      smsOptIn: formData.get("smsOptIn") === "on",
     };
 
     setIsSubmitting(true);
@@ -297,6 +322,55 @@ export function EventUpdatesModal() {
                   Email {fieldErrors.email[0]}
                 </span>
               ) : null}
+            </label>
+
+            <label className="block">
+              <span className="mb-1.5 block text-xs font-black uppercase text-[#102344] sm:mb-2 sm:text-sm">
+                Phone <span className="normal-case">(optional)</span>
+              </span>
+              <input
+                type="tel"
+                name="phoneNumber"
+                value={formValues.phoneNumber}
+                onChange={(event) => updateFormValue("phoneNumber", event.target.value)}
+                onInput={(event) =>
+                  updateFormValue("phoneNumber", event.currentTarget.value)
+                }
+                className="w-full border-4 border-[#102344] bg-[#fff7e6] px-3 py-2.5 text-base font-semibold text-[#102344] shadow-[4px_4px_0_#102344] outline-none placeholder:text-[#5f6f86] focus:bg-white sm:px-4 sm:py-3 sm:shadow-[5px_5px_0_#102344]"
+                autoComplete="tel"
+                inputMode="tel"
+                placeholder="(512) 555-0123"
+                aria-invalid={Boolean(fieldErrors.phoneNumber?.[0])}
+              />
+              {fieldErrors.phoneNumber?.[0] ? (
+                <span className="mt-2 block text-sm font-bold text-[#e6392e]">
+                  Phone {fieldErrors.phoneNumber[0]}
+                </span>
+              ) : null}
+            </label>
+
+            <label className="flex gap-3 border-4 border-[#102344] bg-[#fff7e6] p-3 shadow-[4px_4px_0_#102344] sm:p-4 sm:shadow-[5px_5px_0_#102344]">
+              <input
+                type="checkbox"
+                name="smsOptIn"
+                checked={formValues.smsOptIn}
+                onChange={(event) => updateSmsOptIn(event.target.checked)}
+                className="mt-1 h-5 w-5 shrink-0 cursor-pointer accent-[#e6392e]"
+                aria-invalid={Boolean(fieldErrors.smsOptIn?.[0])}
+              />
+              <span className="text-xs font-semibold leading-5 text-[#344760] sm:text-sm sm:leading-6">
+                <span className="block font-black uppercase text-[#102344]">
+                  Text me updates too
+                </span>
+                By checking this box, I agree that Bubelpalooza may send event
+                update texts to the number above. Message and data rates may apply.
+                Reply STOP to opt out.
+                {fieldErrors.smsOptIn?.[0] ? (
+                  <span className="mt-2 block font-bold text-[#e6392e]">
+                    Text opt-in {fieldErrors.smsOptIn[0]}
+                  </span>
+                ) : null}
+              </span>
             </label>
 
             {requestError ? (
