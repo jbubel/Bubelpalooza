@@ -37,8 +37,18 @@ Missing Resend provider credentials are treated as invalid application configura
 
 Email failures are logged as coarse operational warnings without raw subscriber names, email addresses, request payloads, or provider response bodies.
 
+## Event Updates SMS Enrollment
+
+The public updates signup form can also capture an optional phone number for guests who explicitly opt into text updates. Phone numbers are normalized to a US E.164-style value before storage. A phone number without SMS consent is rejected, and SMS consent without a phone number is rejected.
+
+SMS enrollment is captured as application data only in this implementation. The signup endpoint does not send text messages yet, so Twilio credentials are not required for this flow. Future SMS sending work should use the stored normalized phone number and consent metadata, and should stay isolated from the Resend welcome email path.
+
+Consent metadata stored with the signup includes the consent timestamp, the form source, and the consent copy version. When consent copy changes materially, update the committed consent copy version so future records remain reviewable.
+
+Duplicate email submissions reuse the existing signup record. If an existing email-only signup later submits a phone number with explicit SMS consent, the existing record is updated with the phone enrollment details. A phone number already attached to another signup is not attached again.
+
 ## Subscriber Data Handling
 
-Subscriber first name, last name, email address, source, and subscription status are stored in the application database for legitimate operational messaging use.
+Subscriber first name, last name, email address, optional phone number, consent metadata, source, and subscription status are stored in the application database for legitimate operational messaging use.
 
 Public responses should return only the minimum status needed by the browser. Subscriber data should not be exposed through client-side code, fixtures, screenshots, public logs, or casual developer-facing surfaces.
