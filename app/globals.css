@@ -67,6 +67,16 @@ a {
   text-decoration: none;
 }
 
+html {
+  scroll-padding-top: 9.5rem;
+}
+
+@media (min-width: 1024px) {
+  html {
+    scroll-padding-top: 7.5rem;
+  }
+}
+
 :root {
   --background: #101827;
   --foreground: #fff7e6;

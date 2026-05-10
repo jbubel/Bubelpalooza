@@ -1,5 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { MERCH_ASSETS, ticketPackages } from "@/lib/merch/catalog";
 
 const marqueeItems = [
   "Sunday May 24",
@@ -27,14 +29,14 @@ const scheduleItems = [
 
 const ticketNotes = [
   {
-    label: "Tickets",
-    title: "Ticket info",
-    copy: "Ticket details are coming soon. For now, save the date and keep an eye here for updates.",
+    label: "Best deal",
+    title: "$25 complete package",
+    copy: "Entry, boil, shirt, koozie, and sticker in one easy pick.",
   },
   {
     label: "Merch",
     title: "Event gear",
-    copy: "Event shirts and small-run merch are in the works. We'll share more once details are ready.",
+    copy: "The 2026 shirt, koozie, and sticker are ready for the beach-club day.",
   },
   {
     label: "Lineup",
@@ -43,7 +45,23 @@ const ticketNotes = [
   },
 ];
 
+const completeIncludes = ["Entry", "Boil", "Shirt", "Koozie", "Sticker"];
+
+function getCompletePackage() {
+  const packageDetails = ticketPackages.find(
+    (ticketPackage) => ticketPackage.id === "complete",
+  );
+
+  if (!packageDetails) {
+    throw new Error("Complete package is missing from the merch catalog.");
+  }
+
+  return packageDetails;
+}
+
 export default function Home() {
+  const completePackage = getCompletePackage();
+
   return (
     <div className="overflow-hidden bg-[#ffd447] text-[#102344]">
       <section className="relative isolate min-h-[calc(100svh-5.5rem)] overflow-hidden border-b-[10px] border-[#102344]">
@@ -103,7 +121,9 @@ export default function Home() {
                 size="lg"
                 className="h-auto rounded-none border-4 border-[#102344] bg-[#e6392e] px-7 py-4 text-base font-black uppercase text-white shadow-[6px_6px_0_#102344] hover:bg-[#cf2f24]"
               >
-                <a href="#tickets">Tickets coming soon</a>
+                <a href="#complete-package">
+                  {completePackage.priceLabel} package
+                </a>
               </Button>
               <Button
                 asChild
@@ -153,6 +173,77 @@ export default function Home() {
               {item}
             </span>
           ))}
+        </div>
+      </section>
+
+      <section
+        id="complete-package"
+        className="relative isolate overflow-hidden border-b-[10px] border-[#102344] bg-[#fff1c7] px-5 py-12 text-[#102344] sm:px-8 lg:px-10"
+      >
+        <div className="absolute inset-y-0 left-0 -z-10 hidden w-[46%] bg-[#ffd447] lg:block" />
+        <div className="absolute bottom-0 right-0 -z-10 h-28 w-full bg-[#2ec4f3] lg:h-44 lg:w-[58%]" />
+        <div className="absolute right-0 top-8 -z-10 h-24 w-36 bg-[#e6392e] sm:h-36 sm:w-56" />
+
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
+          <div className="min-w-0">
+            <p className="inline-block border-4 border-[#102344] bg-[#e6392e] px-4 py-2 text-sm font-black uppercase text-white shadow-[5px_5px_0_#102344]">
+              The easy yes
+            </p>
+            <h2
+              data-poster="true"
+              className="mt-5 max-w-3xl text-[4.15rem] leading-[0.84] text-[#102344] min-[430px]:text-7xl sm:text-8xl"
+            >
+              <span className="block">THE</span>
+              <span className="block text-[#e6392e]">
+                {completePackage.priceLabel}
+              </span>
+              <span className="block">PACKAGE.</span>
+            </h2>
+            <p className="mt-5 max-w-xl text-xl font-black leading-8 text-[#102344] sm:text-2xl sm:leading-9">
+              Entry, boil, shirt, koozie, sticker.
+            </p>
+
+            <div className="mt-6 grid max-w-xl grid-cols-2 gap-3 sm:grid-cols-5">
+              {completeIncludes.map((item) => (
+                <span
+                  key={item}
+                  className="border-2 border-[#102344] bg-[#ffd447] px-3 py-3 text-center text-sm font-black uppercase text-[#102344] shadow-[4px_4px_0_#102344]"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <Button
+                asChild
+                size="lg"
+                className="h-auto rounded-none border-4 border-[#102344] bg-[#e6392e] px-7 py-4 text-base font-black uppercase text-white shadow-[6px_6px_0_#102344] hover:bg-[#cf2f24]"
+              >
+                <Link href="/merch">Preview the package</Link>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="h-auto rounded-none border-4 border-[#102344] bg-[#fff7e6] px-7 py-4 text-base font-black uppercase text-[#102344] shadow-[6px_6px_0_#102344] hover:bg-white"
+              >
+                <a href="#tickets">Ticket details</a>
+              </Button>
+            </div>
+          </div>
+
+          <div className="relative min-w-0">
+            <div className="absolute -bottom-3 left-4 h-20 w-48 bg-[#102344] sm:h-28 sm:w-72" />
+            <Image
+              src={MERCH_ASSETS.lineupCutout}
+              alt="Bubelpalooza complete package merch with event shirts, koozies, and sticker."
+              width={1448}
+              height={1086}
+              sizes="(min-width: 1024px) 55vw, 100vw"
+              className="relative h-auto w-full drop-shadow-[10px_14px_0_rgba(16,35,68,0.2)]"
+            />
+          </div>
         </div>
       </section>
 
@@ -271,10 +362,20 @@ export default function Home() {
                 BUY THE PASS. WEAR THE SHIRT. HIT THE POOL.
               </h2>
             </div>
-            <p className="max-w-2xl border-t-8 border-[#2ec4f3] pt-5 text-lg font-semibold leading-8 text-[#344760]">
-              Tickets and merch are still being finalized. Once they are ready,
-              this page will point you straight to the right place.
-            </p>
+            <div className="max-w-2xl border-t-8 border-[#2ec4f3] pt-5">
+              <p className="text-lg font-semibold leading-8 text-[#344760]">
+                Start with the complete package. It is the cleanest way into
+                the full day: food, pool, live music, and the 2026 gear.
+              </p>
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="mt-5 h-auto rounded-none border-4 border-[#102344] bg-[#fff7e6] px-6 py-3 text-sm font-black uppercase text-[#102344] shadow-[5px_5px_0_#102344] hover:bg-white"
+              >
+                <Link href="/merch">Preview merch</Link>
+              </Button>
+            </div>
           </div>
 
           <div className="mt-8 grid gap-4 lg:grid-cols-3">

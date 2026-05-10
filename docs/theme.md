@@ -282,8 +282,10 @@ Motifs should be graphic and simple, not realistic.
 ## Copy Rules
 
 - Public copy should sound like guest-facing event information, not internal acceptance criteria.
-- Avoid phrases like `the site should`, `the layout should`, `purchase touchpoints`, or other implementation language in rendered pages.
-- Keep claims modest until details are confirmed: `coming soon`, `we will share more`, and `details are still being finalized` are appropriate.
+- Avoid phrases like `the site should`, `the layout should`, `purchase touchpoints`, `flow`, `wizard`, `model`, `placeholder`, `current rendering`, or other implementation language in rendered pages.
+- Treat public pages as live guest communication even when a feature is being built. Say what guests can expect, choose, bring, or pick up; do not narrate engineering state, issue scope, or internal planning.
+- Keep preview pages editorial and confident. Do not list every configuration detail unless the visitor is actively making that choice in a form.
+- Keep claims modest until details are confirmed: `coming soon` and `we will share more` are appropriate when they sound natural to guests.
 - Do not invent event facts, ticket terms, lineup details, policies, dietary/allergen information, or logistics.
 - Do not downplay live music. Present it as a visible, celebratory part of Bubelpalooza alongside the boil and pool.
 - Use simple, friendly, specific copy over hype that creates expectations the event team has not confirmed.
