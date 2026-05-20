@@ -11,6 +11,12 @@ import {
   type TicketCartPass,
 } from "@/lib/tickets/cart";
 import { serverEnv } from "@/lib/env/server";
+import {
+  createCompletedNoPaymentTicketOrder,
+  createPendingStripeTicketOrder,
+  markTicketOrderCheckoutFailed,
+  updateTicketOrderStripeCheckoutSession,
+} from "@/lib/tickets/order-store";
 
 export const runtime = "nodejs";
 
@@ -132,17 +138,6 @@ export async function POST(request: Request) {
     );
   }
 
-  if (!stripe) {
-    return NextResponse.json(
-      {
-        ok: false,
-        message:
-          "Checkout is not available right now. Please check back soon.",
-      },
-      { status: 503 },
-    );
-  }
-
   let body: unknown;
 
   try {
@@ -173,7 +168,47 @@ export async function POST(request: Request) {
   const cart = parsedCart.data;
   const totals = getCartTotals(cart);
 
+  if (totals.totalCents === 0) {
+    try {
+      await createCompletedNoPaymentTicketOrder(cart);
+
+      return NextResponse.json({
+        ok: true,
+        url: `${serverEnv.APP_URL}/tickets/success`,
+      });
+    } catch (error) {
+      console.error(
+        "Failed to create no-payment ticket order.",
+        error instanceof Error ? { name: error.name } : undefined,
+      );
+
+      return NextResponse.json(
+        {
+          ok: false,
+          message: "Checkout is not available right now. Please try again soon.",
+        },
+        { status: 500 },
+      );
+    }
+  }
+
+  if (!stripe) {
+    return NextResponse.json(
+      {
+        ok: false,
+        message:
+          "Checkout is not available right now. Please check back soon.",
+      },
+      { status: 503 },
+    );
+  }
+
+  let pendingOrder: Awaited<ReturnType<typeof createPendingStripeTicketOrder>> | null =
+    null;
+
   try {
+    pendingOrder = await createPendingStripeTicketOrder(cart);
+
     const checkoutSession = await stripe.checkout.sessions.create({
       mode: "payment",
       branding_settings: getCheckoutBrandingSettings(),
@@ -186,18 +221,24 @@ export async function POST(request: Request) {
       line_items: createCheckoutLineItems(cart),
       success_url: `${serverEnv.APP_URL}/tickets/success`,
       cancel_url: `${serverEnv.APP_URL}/tickets`,
-      client_reference_id: crypto.randomUUID(),
+      client_reference_id: pendingOrder.id,
       metadata: {
         source: "tickets_wizard",
-        pass_count: String(cart.passes.length),
-        donation_cents: String(cart.donationCents),
-        total_cents: String(totals.totalCents),
+        order_id: pendingOrder.id,
       },
     });
 
     if (!checkoutSession.url) {
       throw new Error("Stripe Checkout session did not return a URL.");
     }
+
+    await updateTicketOrderStripeCheckoutSession({
+      orderId: pendingOrder.id,
+      stripeCheckoutSessionId: checkoutSession.id,
+      stripeCheckoutStatus: checkoutSession.status,
+      stripePaymentStatus: checkoutSession.payment_status,
+      stripeClientReferenceId: checkoutSession.client_reference_id,
+    });
 
     return NextResponse.json({
       ok: true,
@@ -208,6 +249,17 @@ export async function POST(request: Request) {
       "Failed to create package Checkout session.",
       error instanceof Error ? { name: error.name } : undefined,
     );
+
+    if (pendingOrder) {
+      try {
+        await markTicketOrderCheckoutFailed(pendingOrder.id);
+      } catch (updateError) {
+        console.error(
+          "Failed to mark package Checkout order as failed.",
+          updateError instanceof Error ? { name: updateError.name } : undefined,
+        );
+      }
+    }
 
     return NextResponse.json(
       {
