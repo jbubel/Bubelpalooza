@@ -25,7 +25,7 @@ export function SiteHeader() {
           {[
             ["Experience", "/#experience"],
             ["Schedule", "/#day-schedule"],
-            ["Tickets", "/#complete-package"],
+            ["Tickets", "/tickets"],
             ["Merch", "/merch"],
             ["Lineup", "/#lineup"],
             ["Beach Club", "/#beach-club"],

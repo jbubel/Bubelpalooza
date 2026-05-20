@@ -7,7 +7,7 @@ import { MERCH_ASSETS, ticketPackages } from "@/lib/merch/catalog";
 export const metadata: Metadata = {
   title: "Merch",
   description:
-    "Preview the $25 Bubelpalooza complete package with entry, boil, shirt, koozie, and sticker.",
+    "Preview the $25 Bubelpalooza ultimate package with entry, boil, shirt, koozie, and sticker.",
 };
 
 function getCompletePackage() {
@@ -16,7 +16,7 @@ function getCompletePackage() {
   );
 
   if (!packageDetails) {
-    throw new Error("Complete package is missing from the merch catalog.");
+    throw new Error("Ultimate package is missing from the merch catalog.");
   }
 
   return packageDetails;
@@ -67,7 +67,7 @@ export default function MerchPage() {
                 size="lg"
                 className="h-auto w-full rounded-none border-4 border-[#102344] bg-[#fff1c7] px-7 py-4 text-base font-black uppercase text-[#102344] shadow-[6px_6px_0_#102344] hover:bg-[#fff7e6] sm:w-auto"
               >
-                <Link href="/#tickets">Event passes</Link>
+                <Link href="/tickets">Build passes</Link>
               </Button>
             </div>
           </div>
@@ -77,7 +77,7 @@ export default function MerchPage() {
             <div className="absolute -bottom-4 left-4 h-20 w-48 bg-[#102344] sm:h-28 sm:w-72" />
             <Image
               src={MERCH_ASSETS.lineupCutout}
-              alt="Bubelpalooza complete package merch with event shirts, koozies, and sticker."
+              alt="Bubelpalooza ultimate package merch with event shirts, koozies, and sticker."
               width={1448}
               height={1086}
               priority
@@ -116,7 +116,7 @@ export default function MerchPage() {
             <div className="grid gap-5 sm:grid-cols-[1fr_auto] sm:items-start">
               <div>
                 <p className="inline-block bg-[#ffd447] px-3 py-1 text-xs font-black uppercase text-[#102344]">
-                  Complete package
+                  Ultimate package
                 </p>
                 <h3
                   data-poster="true"

@@ -30,7 +30,7 @@ const scheduleItems = [
 const ticketNotes = [
   {
     label: "Best deal",
-    title: "$25 complete package",
+    title: "$25 ultimate package",
     copy: "Entry, boil, shirt, koozie, and sticker in one easy pick.",
   },
   {
@@ -53,7 +53,7 @@ function getCompletePackage() {
   );
 
   if (!packageDetails) {
-    throw new Error("Complete package is missing from the merch catalog.");
+    throw new Error("Ultimate package is missing from the merch catalog.");
   }
 
   return packageDetails;
@@ -121,9 +121,7 @@ export default function Home() {
                 size="lg"
                 className="h-auto rounded-none border-4 border-[#102344] bg-[#e6392e] px-7 py-4 text-base font-black uppercase text-white shadow-[6px_6px_0_#102344] hover:bg-[#cf2f24]"
               >
-                <a href="#complete-package">
-                  {completePackage.priceLabel} package
-                </a>
+                <Link href="/tickets">Buy tickets</Link>
               </Button>
               <Button
                 asChild
@@ -220,7 +218,7 @@ export default function Home() {
                 size="lg"
                 className="h-auto rounded-none border-4 border-[#102344] bg-[#e6392e] px-7 py-4 text-base font-black uppercase text-white shadow-[6px_6px_0_#102344] hover:bg-[#cf2f24]"
               >
-                <Link href="/merch">Preview the package</Link>
+                <Link href="/tickets">Build your package</Link>
               </Button>
               <Button
                 asChild
@@ -237,7 +235,7 @@ export default function Home() {
             <div className="absolute -bottom-3 left-4 h-20 w-48 bg-[#102344] sm:h-28 sm:w-72" />
             <Image
               src={MERCH_ASSETS.lineupCutout}
-              alt="Bubelpalooza complete package merch with event shirts, koozies, and sticker."
+              alt="Bubelpalooza ultimate package merch with event shirts, koozies, and sticker."
               width={1448}
               height={1086}
               sizes="(min-width: 1024px) 55vw, 100vw"
@@ -364,7 +362,7 @@ export default function Home() {
             </div>
             <div className="max-w-2xl border-t-8 border-[#2ec4f3] pt-5">
               <p className="text-lg font-semibold leading-8 text-[#344760]">
-                Start with the complete package. It is the cleanest way into
+                Start with the ultimate package. It is the cleanest way into
                 the full day: food, pool, live music, and the 2026 gear.
               </p>
               <Button
@@ -373,7 +371,7 @@ export default function Home() {
                 size="lg"
                 className="mt-5 h-auto rounded-none border-4 border-[#102344] bg-[#fff7e6] px-6 py-3 text-sm font-black uppercase text-[#102344] shadow-[5px_5px_0_#102344] hover:bg-white"
               >
-                <Link href="/merch">Preview merch</Link>
+                <Link href="/tickets">Build passes</Link>
               </Button>
             </div>
           </div>

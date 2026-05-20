@@ -13,7 +13,7 @@ export const MERCH_ASSETS = {
 
 export const SHIRT_STYLE_VALUES = ["tee", "tank"] as const;
 export const SHIRT_COLOR_VALUES = ["black", "white"] as const;
-export const SHIRT_SIZE_VALUES = ["S", "M", "L", "XL", "2XL", "3XL", "4XL"] as const;
+export const SHIRT_SIZE_VALUES = ["S", "M", "L", "XL", "2XL", "3XL"] as const;
 export const KOOZIE_TYPE_VALUES = ["slim-tall", "standard-short"] as const;
 export const PACKAGE_VALUES = [
   "complete",
@@ -109,8 +109,8 @@ export const koozieTypeOptions = [
 export const ticketPackages = [
   {
     id: "complete",
-    name: "Complete package",
-    shortName: "Complete",
+    name: "Ultimate package",
+    shortName: "Ultimate",
     priceCents: 2500,
     priceLabel: "$25",
     description: "Entry, food, sticker, koozie, and shirt.",
@@ -121,8 +121,8 @@ export const ticketPackages = [
   },
   {
     id: "koozie",
-    name: "Koozie package",
-    shortName: "Koozie",
+    name: "Koozie+ package",
+    shortName: "Koozie+",
     priceCents: 1500,
     priceLabel: "$15",
     description: "Entry, food, sticker, and koozie.",
@@ -132,8 +132,8 @@ export const ticketPackages = [
   },
   {
     id: "sticker",
-    name: "Sticker package",
-    shortName: "Sticker",
+    name: "Sticker+ package",
+    shortName: "Sticker+",
     priceCents: 1000,
     priceLabel: "$10",
     description: "Entry, food, and sticker.",
@@ -161,12 +161,12 @@ export const merchProducts = [
     name: "Event shirt",
     eyebrow: "Tee or tank",
     description:
-      "Choose tee or tank, black or white, with sizes from S through 4XL.",
+      "Choose tee or tank, black or white, with sizes from S through 3XL.",
     image: {
       src: MERCH_ASSETS.blackTee,
       alt: "Black Bubelpalooza event tee rendering with crawfish and beach club artwork.",
     },
-    options: ["Tee or tank", "Black or white", "S to 4XL"],
+    options: ["Tee or tank", "Black or white", "S to 3XL"],
   },
   {
     id: "koozie",
