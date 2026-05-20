@@ -15,4 +15,4 @@ These files are the current event-owner supplied renderings for Bubelpalooza mer
 | Standard/short koozie rendering | `/merch/bubelpalooza-standard-short-koozie.jpg` | `1000014761.jpg` |
 | Sticker rendering | `/merch/bubelpalooza-sticker.jpg` | `1000014765.jpg` |
 
-The ticket package flow can use these paths for package summaries and merch selectors. Shirt sizes are S, M, L, XL, 2XL, 3XL, and 4XL; sizes are represented in product data rather than image filenames.
+The ticket package flow can use these paths for package summaries and merch selectors. Shirt sizes are S, M, L, XL, 2XL, and 3XL; sizes are represented in product data rather than image filenames.
