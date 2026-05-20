@@ -75,7 +75,7 @@ function formatDollarInput(value: string) {
 function createPass(): TicketWizardPass {
   return {
     id: typeof crypto !== "undefined" ? crypto.randomUUID() : String(Date.now()),
-    packageId: "complete",
+    packageId: "ultimate",
     nameYourPriceDollars: DEFAULT_NAME_YOUR_PRICE_DOLLARS,
     shirtStyle: "",
     shirtColor: "",

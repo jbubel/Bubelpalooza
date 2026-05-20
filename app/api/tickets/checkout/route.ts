@@ -53,7 +53,7 @@ function getCheckoutBrandingSettings(): CheckoutBrandingSettings {
 }
 
 function getPackageImagePath(packageId: TicketCartPass["packageId"]) {
-  if (packageId === "complete") {
+  if (packageId === "ultimate") {
     return MERCH_ASSETS.lineupCutout;
   }
 

@@ -10,9 +10,9 @@ export const metadata: Metadata = {
     "Preview the $25 Bubelpalooza ultimate package with entry, boil, shirt, koozie, and sticker.",
 };
 
-function getCompletePackage() {
+function getUltimatePackage() {
   const packageDetails = ticketPackages.find(
-    (ticketPackage) => ticketPackage.id === "complete",
+    (ticketPackage) => ticketPackage.id === "ultimate",
   );
 
   if (!packageDetails) {
@@ -22,13 +22,13 @@ function getCompletePackage() {
   return packageDetails;
 }
 
-const completeIncludes = ["Entry", "Boil", "Shirt", "Koozie", "Sticker"];
+const ultimateIncludes = ["Entry", "Boil", "Shirt", "Koozie", "Sticker"];
 const viewportSafeWidth = {
   width: "min(100%, calc(100vw - 2.5rem))",
 };
 
 export default function MerchPage() {
-  const completePackage = getCompletePackage();
+  const ultimatePackage = getUltimatePackage();
 
   return (
     <div className="bg-[#ffd447] text-[#102344]">
@@ -59,7 +59,7 @@ export default function MerchPage() {
                 size="lg"
                 className="h-auto w-full rounded-none border-4 border-[#102344] bg-[#e6392e] px-7 py-4 text-base font-black uppercase text-white shadow-[6px_6px_0_#102344] hover:bg-[#cf2f24] sm:w-auto"
               >
-                <Link href="#complete-package">Included</Link>
+                <Link href="#ultimate-package">Included</Link>
               </Button>
               <Button
                 asChild
@@ -89,7 +89,7 @@ export default function MerchPage() {
       </section>
 
       <section
-        id="complete-package"
+        id="ultimate-package"
         className="scroll-mt-36 bg-[#fff1c7] px-5 py-12 text-[#102344] sm:px-8 lg:scroll-mt-28 lg:px-10"
       >
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 lg:grid-cols-[0.76fr_1.24fr] lg:items-start">
@@ -101,7 +101,7 @@ export default function MerchPage() {
               data-poster="true"
               className="mt-5 text-5xl leading-[0.9] text-[#102344] sm:text-7xl"
             >
-              {completePackage.priceLabel} FOR THE WHOLE DAY.
+              {ultimatePackage.priceLabel} FOR THE WHOLE DAY.
             </h2>
             <p className="mt-5 max-w-xl border-l-8 border-[#2ec4f3] bg-[#102344] px-5 py-4 text-lg font-semibold leading-8 text-[#fff7e6] shadow-[8px_8px_0_#e6392e]">
               Pick it up at check-in, then settle in for crawfish, pool time,
@@ -122,19 +122,19 @@ export default function MerchPage() {
                   data-poster="true"
                   className="mt-4 text-5xl leading-[0.88] sm:text-6xl"
                 >
-                  {completePackage.name}
+                  {ultimatePackage.name}
                 </h3>
               </div>
               <p
                 data-poster="true"
                 className="bg-[#102344] px-4 py-3 text-6xl leading-none text-[#ffd447]"
               >
-                {completePackage.priceLabel}
+                {ultimatePackage.priceLabel}
               </p>
             </div>
 
             <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-5">
-              {completeIncludes.map((item) => (
+              {ultimateIncludes.map((item) => (
                 <p
                   key={item}
                   className="border-2 border-white bg-[#102344] px-3 py-3 text-center text-sm font-black uppercase text-[#ffd447]"
