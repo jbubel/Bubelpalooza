@@ -19,9 +19,11 @@ import {
   type ShirtStyle,
   type TicketPackage,
 } from "@/lib/merch/catalog";
-
-export const MAX_PASSES_PER_ORDER = 6;
-export const TICKET_CART_STORAGE_KEY = "bubelpalooza-ticket-cart";
+import { MAX_PASSES_PER_ORDER } from "@/lib/tickets/constants";
+export {
+  MAX_PASSES_PER_ORDER,
+  TICKET_CART_STORAGE_KEY,
+} from "@/lib/tickets/constants";
 
 export const centsSchema = z
   .number()

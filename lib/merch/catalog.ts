@@ -1,4 +1,25 @@
 import { z } from "zod";
+import {
+  KOOZIE_TYPE_VALUES,
+  PACKAGE_VALUES,
+  SHIRT_COLOR_VALUES,
+  SHIRT_SIZE_VALUES,
+  SHIRT_STYLE_VALUES,
+  type KoozieType,
+  type PackageId,
+  type ShirtColor,
+  type ShirtSize,
+  type ShirtStyle,
+} from "@/lib/tickets/constants";
+
+export {
+  KOOZIE_TYPE_VALUES,
+  PACKAGE_VALUES,
+  SHIRT_COLOR_VALUES,
+  SHIRT_SIZE_VALUES,
+  SHIRT_STYLE_VALUES,
+};
+export type { KoozieType, PackageId, ShirtColor, ShirtSize, ShirtStyle };
 
 export const MERCH_ASSETS = {
   lineup: "/merch/bubelpalooza-merch-lineup.png",
@@ -10,17 +31,6 @@ export const MERCH_ASSETS = {
   standardShortKoozie: "/merch/bubelpalooza-standard-short-koozie.jpg",
   sticker: "/merch/bubelpalooza-sticker.jpg",
 } as const;
-
-export const SHIRT_STYLE_VALUES = ["tee", "tank"] as const;
-export const SHIRT_COLOR_VALUES = ["black", "white"] as const;
-export const SHIRT_SIZE_VALUES = ["S", "M", "L", "XL", "2XL", "3XL"] as const;
-export const KOOZIE_TYPE_VALUES = ["slim-tall", "standard-short"] as const;
-export const PACKAGE_VALUES = [
-  "complete",
-  "koozie",
-  "sticker",
-  "name-your-price",
-] as const;
 
 export const shirtStyleSchema = z.enum(SHIRT_STYLE_VALUES);
 export const shirtColorSchema = z.enum(SHIRT_COLOR_VALUES);
@@ -38,11 +48,6 @@ export const koozieSelectionSchema = z.object({
   type: koozieTypeSchema,
 });
 
-export type ShirtStyle = z.infer<typeof shirtStyleSchema>;
-export type ShirtColor = z.infer<typeof shirtColorSchema>;
-export type ShirtSize = z.infer<typeof shirtSizeSchema>;
-export type KoozieType = z.infer<typeof koozieTypeSchema>;
-export type PackageId = z.infer<typeof packageSchema>;
 export type ShirtSelection = z.infer<typeof shirtSelectionSchema>;
 export type KoozieSelection = z.infer<typeof koozieSelectionSchema>;
 
@@ -108,7 +113,7 @@ export const koozieTypeOptions = [
 
 export const ticketPackages = [
   {
-    id: "complete",
+    id: "ultimate",
     name: "Ultimate package",
     shortName: "Ultimate",
     priceCents: 2500,

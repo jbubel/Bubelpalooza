@@ -45,11 +45,11 @@ const ticketNotes = [
   },
 ];
 
-const completeIncludes = ["Entry", "Boil", "Shirt", "Koozie", "Sticker"];
+const ultimateIncludes = ["Entry", "Boil", "Shirt", "Koozie", "Sticker"];
 
-function getCompletePackage() {
+function getUltimatePackage() {
   const packageDetails = ticketPackages.find(
-    (ticketPackage) => ticketPackage.id === "complete",
+    (ticketPackage) => ticketPackage.id === "ultimate",
   );
 
   if (!packageDetails) {
@@ -60,7 +60,7 @@ function getCompletePackage() {
 }
 
 export default function Home() {
-  const completePackage = getCompletePackage();
+  const ultimatePackage = getUltimatePackage();
 
   return (
     <div className="overflow-hidden bg-[#ffd447] text-[#102344]">
@@ -175,7 +175,7 @@ export default function Home() {
       </section>
 
       <section
-        id="complete-package"
+        id="ultimate-package"
         className="relative isolate overflow-hidden border-b-[10px] border-[#102344] bg-[#fff1c7] px-5 py-12 text-[#102344] sm:px-8 lg:px-10"
       >
         <div className="absolute inset-y-0 left-0 -z-10 hidden w-[46%] bg-[#ffd447] lg:block" />
@@ -193,7 +193,7 @@ export default function Home() {
             >
               <span className="block">THE</span>
               <span className="block text-[#e6392e]">
-                {completePackage.priceLabel}
+                {ultimatePackage.priceLabel}
               </span>
               <span className="block">PACKAGE.</span>
             </h2>
@@ -202,7 +202,7 @@ export default function Home() {
             </p>
 
             <div className="mt-6 grid max-w-xl grid-cols-2 gap-3 sm:grid-cols-5">
-              {completeIncludes.map((item) => (
+              {ultimateIncludes.map((item) => (
                 <span
                   key={item}
                   className="border-2 border-[#102344] bg-[#ffd447] px-3 py-3 text-center text-sm font-black uppercase text-[#102344] shadow-[4px_4px_0_#102344]"

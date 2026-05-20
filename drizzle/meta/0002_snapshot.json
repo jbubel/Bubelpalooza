@@ -1,0 +1,591 @@
+{
+  "id": "775a169e-142b-4c0e-ae50-cdba2625b635",
+  "prevId": "521fab74-bea3-4aac-afde-f366d00409d5",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.event_update_signups": {
+      "name": "event_update_signups",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "first_name": {
+          "name": "first_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "last_name": {
+          "name": "last_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email": {
+          "name": "email",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "phone_number": {
+          "name": "phone_number",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "source": {
+          "name": "source",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "status": {
+          "name": "status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'subscribed'"
+        },
+        "sms_consent_status": {
+          "name": "sms_consent_status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'not_subscribed'"
+        },
+        "sms_consent_at": {
+          "name": "sms_consent_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sms_consent_source": {
+          "name": "sms_consent_source",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sms_consent_copy_version": {
+          "name": "sms_consent_copy_version",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "event_update_signups_email_unique": {
+          "name": "event_update_signups_email_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "email"
+          ]
+        },
+        "event_update_signups_phone_number_unique": {
+          "name": "event_update_signups_phone_number_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "phone_number"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.ticket_order_passes": {
+      "name": "ticket_order_passes",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "order_id": {
+          "name": "order_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "pass_number": {
+          "name": "pass_number",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "package_id": {
+          "name": "package_id",
+          "type": "ticket_package_id",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "price_cents": {
+          "name": "price_cents",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name_your_price_cents": {
+          "name": "name_your_price_cents",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "shirt_style": {
+          "name": "shirt_style",
+          "type": "ticket_shirt_style",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "shirt_color": {
+          "name": "shirt_color",
+          "type": "ticket_shirt_color",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "shirt_size": {
+          "name": "shirt_size",
+          "type": "ticket_shirt_size",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "koozie_type": {
+          "name": "koozie_type",
+          "type": "ticket_koozie_type",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "ticket_order_passes_order_id_pass_number_unique": {
+          "name": "ticket_order_passes_order_id_pass_number_unique",
+          "columns": [
+            {
+              "expression": "order_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "pass_number",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "ticket_order_passes_order_id_idx": {
+          "name": "ticket_order_passes_order_id_idx",
+          "columns": [
+            {
+              "expression": "order_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "ticket_order_passes_order_id_ticket_orders_id_fk": {
+          "name": "ticket_order_passes_order_id_ticket_orders_id_fk",
+          "tableFrom": "ticket_order_passes",
+          "tableTo": "ticket_orders",
+          "columnsFrom": [
+            "order_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "ticket_order_passes_pass_number_range": {
+          "name": "ticket_order_passes_pass_number_range",
+          "value": "\"ticket_order_passes\".\"pass_number\" >= 1 and \"ticket_order_passes\".\"pass_number\" <= 6"
+        },
+        "ticket_order_passes_amounts_nonnegative": {
+          "name": "ticket_order_passes_amounts_nonnegative",
+          "value": "\"ticket_order_passes\".\"price_cents\" >= 0 and \"ticket_order_passes\".\"name_your_price_cents\" >= 0"
+        },
+        "ticket_order_passes_name_your_price_matches_package": {
+          "name": "ticket_order_passes_name_your_price_matches_package",
+          "value": "(\n        \"ticket_order_passes\".\"package_id\" = 'name-your-price' and\n        \"ticket_order_passes\".\"name_your_price_cents\" = \"ticket_order_passes\".\"price_cents\"\n      ) or (\n        \"ticket_order_passes\".\"package_id\" <> 'name-your-price' and\n        \"ticket_order_passes\".\"name_your_price_cents\" = 0\n      )"
+        },
+        "ticket_order_passes_merch_matches_package": {
+          "name": "ticket_order_passes_merch_matches_package",
+          "value": "(\n        \"ticket_order_passes\".\"package_id\" = 'ultimate' and\n        \"ticket_order_passes\".\"shirt_style\" is not null and\n        \"ticket_order_passes\".\"shirt_color\" is not null and\n        \"ticket_order_passes\".\"shirt_size\" is not null and\n        \"ticket_order_passes\".\"koozie_type\" is not null\n      ) or (\n        \"ticket_order_passes\".\"package_id\" = 'koozie' and\n        \"ticket_order_passes\".\"shirt_style\" is null and\n        \"ticket_order_passes\".\"shirt_color\" is null and\n        \"ticket_order_passes\".\"shirt_size\" is null and\n        \"ticket_order_passes\".\"koozie_type\" is not null\n      ) or (\n        \"ticket_order_passes\".\"package_id\" in ('sticker', 'name-your-price') and\n        \"ticket_order_passes\".\"shirt_style\" is null and\n        \"ticket_order_passes\".\"shirt_color\" is null and\n        \"ticket_order_passes\".\"shirt_size\" is null and\n        \"ticket_order_passes\".\"koozie_type\" is null\n      )"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.ticket_orders": {
+      "name": "ticket_orders",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "status": {
+          "name": "status",
+          "type": "ticket_order_status",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'pending'"
+        },
+        "payment_status": {
+          "name": "payment_status",
+          "type": "ticket_payment_status",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'unpaid'"
+        },
+        "payment_provider": {
+          "name": "payment_provider",
+          "type": "ticket_payment_provider",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "currency": {
+          "name": "currency",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'usd'"
+        },
+        "pass_count": {
+          "name": "pass_count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "pass_subtotal_cents": {
+          "name": "pass_subtotal_cents",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "donation_cents": {
+          "name": "donation_cents",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "total_cents": {
+          "name": "total_cents",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "customer_name": {
+          "name": "customer_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "customer_email": {
+          "name": "customer_email",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "stripe_checkout_session_id": {
+          "name": "stripe_checkout_session_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "stripe_checkout_status": {
+          "name": "stripe_checkout_status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "stripe_payment_intent_id": {
+          "name": "stripe_payment_intent_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "stripe_payment_status": {
+          "name": "stripe_payment_status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "stripe_customer_id": {
+          "name": "stripe_customer_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "stripe_client_reference_id": {
+          "name": "stripe_client_reference_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "completed_at": {
+          "name": "completed_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "canceled_at": {
+          "name": "canceled_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "ticket_orders_stripe_checkout_session_id_unique": {
+          "name": "ticket_orders_stripe_checkout_session_id_unique",
+          "columns": [
+            {
+              "expression": "stripe_checkout_session_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "ticket_orders_stripe_payment_intent_id_unique": {
+          "name": "ticket_orders_stripe_payment_intent_id_unique",
+          "columns": [
+            {
+              "expression": "stripe_payment_intent_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "ticket_orders_status_idx": {
+          "name": "ticket_orders_status_idx",
+          "columns": [
+            {
+              "expression": "status",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "ticket_orders_customer_email_idx": {
+          "name": "ticket_orders_customer_email_idx",
+          "columns": [
+            {
+              "expression": "customer_email",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "ticket_orders_pass_count_range": {
+          "name": "ticket_orders_pass_count_range",
+          "value": "\"ticket_orders\".\"pass_count\" >= 1 and \"ticket_orders\".\"pass_count\" <= 6"
+        },
+        "ticket_orders_amounts_nonnegative": {
+          "name": "ticket_orders_amounts_nonnegative",
+          "value": "\"ticket_orders\".\"pass_subtotal_cents\" >= 0 and \"ticket_orders\".\"donation_cents\" >= 0 and \"ticket_orders\".\"total_cents\" >= 0"
+        },
+        "ticket_orders_total_matches_parts": {
+          "name": "ticket_orders_total_matches_parts",
+          "value": "\"ticket_orders\".\"total_cents\" = \"ticket_orders\".\"pass_subtotal_cents\" + \"ticket_orders\".\"donation_cents\""
+        }
+      },
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {
+    "public.ticket_koozie_type": {
+      "name": "ticket_koozie_type",
+      "schema": "public",
+      "values": [
+        "slim-tall",
+        "standard-short"
+      ]
+    },
+    "public.ticket_order_status": {
+      "name": "ticket_order_status",
+      "schema": "public",
+      "values": [
+        "pending",
+        "completed",
+        "failed",
+        "canceled"
+      ]
+    },
+    "public.ticket_package_id": {
+      "name": "ticket_package_id",
+      "schema": "public",
+      "values": [
+        "ultimate",
+        "koozie",
+        "sticker",
+        "name-your-price"
+      ]
+    },
+    "public.ticket_payment_provider": {
+      "name": "ticket_payment_provider",
+      "schema": "public",
+      "values": [
+        "stripe",
+        "none"
+      ]
+    },
+    "public.ticket_payment_status": {
+      "name": "ticket_payment_status",
+      "schema": "public",
+      "values": [
+        "unpaid",
+        "paid",
+        "no_payment_required",
+        "failed",
+        "refunded"
+      ]
+    },
+    "public.ticket_shirt_color": {
+      "name": "ticket_shirt_color",
+      "schema": "public",
+      "values": [
+        "black",
+        "white"
+      ]
+    },
+    "public.ticket_shirt_size": {
+      "name": "ticket_shirt_size",
+      "schema": "public",
+      "values": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL"
+      ]
+    },
+    "public.ticket_shirt_style": {
+      "name": "ticket_shirt_style",
+      "schema": "public",
+      "values": [
+        "tee",
+        "tank"
+      ]
+    }
+  },
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}
